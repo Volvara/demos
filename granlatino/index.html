@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gran Latino Taco Bar — Portimão</title>
+<meta name="description" content="Cozinha latina autêntica em Portimão. Tacos, Burritos, Ceviche e Cocktails. Entregas em Portimão, Alvor, Parchal e Ferragudo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Gran Latino Taco Bar","image":"https://granlatino.pt/assets/logo.jpg","address":{"@type":"PostalAddress","streetAddress":"R. Dr. João Vitorino Mealha 11","addressLocality":"Portimão","postalCode":"8500-598","addressCountry":"PT"},"telephone":"+351963169878","servesCuisine":"Mexican, Latin American","priceRange":"€","openingHours":["Mo-Fr 12:00-22:30","Sa 17:00-22:30"],"url":"https://granlatino.pt"}
+</script>
+<style>
+:root {
+  --gl-black:   #0D0D0D;
+  --gl-jungle:  #0F2610;
+  --gl-lime:    #7BC42A;
+  --gl-sunset:  #E8621A;
+  --gl-gold:    #F5A623;
+  --gl-magenta: #E0286E;
+  --gl-cream:   #FDF6E3;
+  --gl-gray:    rgba(253,246,227,0.55);
+  --font-d: 'Bebas Neue', sans-serif;
+  --font-h: 'Playfair Display', serif;
+  --font-b: 'DM Sans', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--gl-black);color:var(--gl-cream);font-family:var(--font-b);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ── NAV ── */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;height:64px;
+  background:rgba(13,13,13,0.97);
+  border-bottom:1px solid rgba(123,196,42,0.15);
+  transition:background 0.3s;
+  isolation:isolate;
+}
+.nav-logo{display:flex;align-items:center;gap:0.75rem}
+.nav-logo img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+.nav-logo span{font-family:var(--font-d);font-size:1.3rem;letter-spacing:0.05em;color:var(--gl-lime)}
+.nav-links{display:flex;gap:0.25rem;align-items:center}
+.nav-links a{
+  font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;
+  padding:0.5rem 0.9rem;border-radius:6px;color:var(--gl-gray);
+  transition:color 0.2s,background 0.2s;
+}
+.nav-links a:hover{color:var(--gl-lime);background:rgba(123,196,42,0.08)}
+.nav-cta{
+  background:var(--gl-lime);color:var(--gl-black)!important;
+  font-weight:700!important;border-radius:8px!important;
+}
+.nav-cta:hover{background:#8fd432!important;color:var(--gl-black)!important}
+.lang-btn{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  color:var(--gl-gray);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;
+  padding:0.35rem 0.7rem;border-radius:6px;cursor:pointer;margin-left:0.5rem;
+  transition:all 0.2s;font-family:var(--font-b);
+}
+.lang-btn:hover{border-color:var(--gl-lime);color:var(--gl-lime)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:rgba(13,13,13,0.9);border:1px solid rgba(255,255,255,0.12);border-radius:8px;z-index:201;position:relative}
+.burger span{display:block;width:22px;height:2px;background:var(--gl-cream);border-radius:2px;transition:all 0.3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;min-height:100svh;position:relative;display:flex;align-items:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg, var(--gl-jungle) 0%, var(--gl-black) 60%);
+}
+.hero-img{
+  position:absolute;right:0;top:0;bottom:0;width:58%;
+  object-fit:cover;object-position:center;
+  mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, black 40%);
+  -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, black 40%);
+  opacity:0.75;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to right, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.6) 45%, rgba(13,13,13,0.1) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  padding:7rem 2rem 5rem;
+  max-width:600px;margin-left:max(2rem, calc(50vw - 550px));
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:rgba(123,196,42,0.12);border:1px solid rgba(123,196,42,0.25);
+  color:var(--gl-lime);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;
+  text-transform:uppercase;padding:0.4rem 1rem;border-radius:100px;margin-bottom:1.5rem;
+}
+.hero-content h1{
+  font-family:var(--font-d);
+  font-size:clamp(3.5rem,7vw,6.5rem);
+  letter-spacing:0.03em;line-height:0.9;
+  margin-bottom:0.5rem;
+}
+.hero-content h1 em{
+  display:block;color:var(--gl-lime);font-style:normal;
+}
+.hero-content h1 span{
+  display:block;color:var(--gl-magenta);font-size:0.52em;letter-spacing:0.15em;
+}
+.hero-sub{
+  font-size:1.05rem;color:var(--gl-gray);line-height:1.65;
+  margin:1.5rem 0 2.5rem;max-width:420px;
+}
+.hero-badges{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:2.5rem}
+.badge-item{
+  display:flex;align-items:center;gap:0.4rem;
+  font-size:0.78rem;color:rgba(253,246,227,0.65);
+}
+.badge-item .dot{width:6px;height:6px;border-radius:50%;background:var(--gl-lime);flex-shrink:0}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{
+  background:var(--gl-lime);color:var(--gl-black);
+  font-family:var(--font-b);font-size:0.88rem;font-weight:700;
+  letter-spacing:0.05em;padding:0.9rem 2rem;border-radius:10px;
+  border:none;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem;
+}
+.btn-primary:hover{background:#8fd432;transform:translateY(-1px);box-shadow:0 8px 24px rgba(123,196,42,0.3)}
+.btn-secondary{
+  background:rgba(255,255,255,0.05);color:var(--gl-cream);
+  border:1px solid rgba(255,255,255,0.15);
+  font-family:var(--font-b);font-size:0.88rem;font-weight:500;
+  padding:0.9rem 2rem;border-radius:10px;cursor:pointer;
+  transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem;
+}
+.btn-secondary:hover{border-color:rgba(253,246,227,0.3);background:rgba(255,255,255,0.08)}
+
+/* ── STRIP ── */
+.info-strip{
+  background:var(--gl-jungle);
+  border-top:1px solid rgba(123,196,42,0.2);
+  border-bottom:1px solid rgba(123,196,42,0.2);
+  padding:1rem 2rem;
+  display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;
+}
+.strip-item{
+  display:flex;align-items:center;gap:0.6rem;
+  font-size:0.78rem;color:rgba(253,246,227,0.7);
+}
+.strip-item strong{color:var(--gl-cream);font-weight:600}
+.strip-icon{font-size:1rem}
+
+/* ── SECTION COMMONS ── */
+.section{padding:5rem 2rem;max-width:1140px;margin:0 auto}
+.section-label{
+  font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gl-lime);font-weight:600;margin-bottom:0.6rem;
+}
+.section-title{
+  font-family:var(--font-d);font-size:clamp(2.2rem,4.5vw,3.8rem);
+  letter-spacing:0.02em;line-height:1;margin-bottom:1rem;
+}
+.section-sub{color:var(--gl-gray);font-size:0.95rem;line-height:1.7;max-width:560px}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(123,196,42,0.2),transparent)}
+
+/* ── ABOUT ── */
+#about .about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;
+  align-items:center;margin-top:3.5rem;
+}
+.about-imgs{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.about-img-main{grid-column:1/-1;border-radius:14px;overflow:hidden;aspect-ratio:16/9}
+.about-img-main img{width:100%;height:100%;object-fit:cover}
+.about-img-sm{border-radius:12px;overflow:hidden;aspect-ratio:1}
+.about-img-sm img{width:100%;height:100%;object-fit:cover}
+.about-text .section-title{margin-bottom:1.25rem}
+.about-text p{color:var(--gl-gray);line-height:1.8;margin-bottom:1.5rem}
+.about-stats{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem}
+.stat{text-align:left}
+.stat-num{font-family:var(--font-d);font-size:2.5rem;color:var(--gl-lime);line-height:1}
+.stat-label{font-size:0.75rem;color:var(--gl-gray);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.2rem}
+
+/* ── GALLERY STRIP ── */
+.gallery-strip{
+  display:flex;gap:1rem;overflow-x:auto;padding:0 2rem 1rem;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.gallery-strip::-webkit-scrollbar{display:none}
+.gal-item{
+  flex-shrink:0;width:260px;height:340px;border-radius:14px;overflow:hidden;
+  position:relative;cursor:pointer;
+}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item .gal-label{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(0,0,0,0.7));
+  padding:2rem 1rem 0.75rem;
+  font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gl-lime);
+}
+
+/* ── MENU ── */
+#menu{background:var(--gl-jungle);padding:5rem 0}
+.menu-inner{max-width:1140px;margin:0 auto;padding:0 2rem}
+.menu-tabs{
+  display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:3rem;
+  border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:0;
+}
+.tab-btn{
+  background:none;border:none;cursor:pointer;
+  font-family:var(--font-b);font-size:0.78rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--gl-gray);
+  padding:0.75rem 1.25rem;border-bottom:2px solid transparent;
+  margin-bottom:-1px;transition:all 0.2s;
+}
+.tab-btn.active{color:var(--gl-lime);border-color:var(--gl-lime)}
+.tab-btn:hover:not(.active){color:var(--gl-cream)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.menu-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px;
+}
+.menu-item{
+  padding:1.25rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.menu-item-header{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:0.4rem}
+.menu-item-name{font-family:var(--font-h);font-size:1rem;font-weight:700;color:var(--gl-cream)}
+.menu-item-price{
+  font-family:var(--font-d);font-size:1.1rem;
+  color:var(--gl-gold);letter-spacing:0.03em;white-space:nowrap;flex-shrink:0;
+}
+.menu-item-desc{font-size:0.8rem;color:var(--gl-gray);line-height:1.55}
+.menu-item-vars{margin-top:0.5rem;display:flex;flex-wrap:wrap;gap:0.4rem}
+.var-pill{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  font-size:0.68rem;color:rgba(253,246,227,0.5);padding:0.2rem 0.6rem;border-radius:100px;
+}
+.spicy::before{content:"🌶 ";font-size:0.75rem}
+.menu-item-name.spicy::before{content:"🌶 ";font-size:0.85rem}
+.menu-highlight{
+  margin-bottom:2.5rem;
+  background:rgba(123,196,42,0.06);border:1px solid rgba(123,196,42,0.15);
+  border-radius:14px;padding:1.5rem;
+}
+.menu-highlight h3{font-family:var(--font-d);font-size:1.5rem;color:var(--gl-lime);margin-bottom:0.5rem}
+.menu-highlight p{font-size:0.85rem;color:var(--gl-gray);line-height:1.65}
+.menu-highlight .price-big{font-family:var(--font-d);font-size:2rem;color:var(--gl-gold);margin-top:0.75rem}
+.drinks-cols{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
+.drinks-cat h4{font-family:var(--font-d);font-size:1.3rem;color:var(--gl-lime);letter-spacing:0.04em;margin-bottom:1rem;border-bottom:1px solid rgba(123,196,42,0.2);padding-bottom:0.5rem}
+.drink-item{padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.drink-item-row{display:flex;justify-content:space-between;gap:0.5rem}
+.drink-name{font-size:0.85rem;color:var(--gl-cream);font-weight:500}
+.drink-price{font-size:0.85rem;color:var(--gl-gold);font-family:var(--font-d);letter-spacing:0.03em;white-space:nowrap}
+.drink-desc{font-size:0.72rem;color:var(--gl-gray);margin-top:0.2rem;line-height:1.4}
+
+/* ── DELIVERY ── */
+#delivery{
+  background:linear-gradient(135deg,rgba(15,38,16,0.6) 0%,rgba(13,13,13,1) 100%);
+  position:relative;overflow:hidden;
+}
+#delivery::before{
+  content:'';position:absolute;right:-200px;top:-200px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(123,196,42,0.06) 0%,transparent 70%);
+}
+.delivery-inner{max-width:1140px;margin:0 auto;padding:5rem 2rem}
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
+.delivery-zones{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.zone-card{
+  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+  border-radius:12px;padding:1.25rem;text-align:center;transition:border-color 0.2s;
+}
+.zone-card:hover{border-color:rgba(123,196,42,0.3)}
+.zone-name{font-family:var(--font-d);font-size:1.4rem;color:var(--gl-lime);letter-spacing:0.04em}
+.zone-note{font-size:0.72rem;color:var(--gl-gray);margin-top:0.25rem}
+.delivery-how{margin-top:1.5rem}
+.how-step{
+  display:flex;gap:1rem;align-items:flex-start;padding:1rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.how-step:last-child{border:none}
+.how-num{
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(123,196,42,0.15);border:1px solid rgba(123,196,42,0.3);
+  color:var(--gl-lime);font-size:0.78rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.how-text h4{font-size:0.88rem;font-weight:600;color:var(--gl-cream);margin-bottom:0.2rem}
+.how-text p{font-size:0.78rem;color:var(--gl-gray)}
+
+/* ── ORDER FORM ── */
+#order{background:var(--gl-black);padding:5rem 0}
+.order-inner{max-width:760px;margin:0 auto;padding:0 2rem}
+.form-card{
+  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;padding:2.5rem;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem}
+label{font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gl-gray)}
+input,select,textarea{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  color:var(--gl-cream);font-family:var(--font-b);font-size:0.9rem;
+  padding:0.75rem 1rem;border-radius:8px;outline:none;transition:border-color 0.2s;
+  width:100%;
+}
+input::placeholder,textarea::placeholder{color:rgba(253,246,227,0.25)}
+input:focus,select:focus,textarea:focus{border-color:rgba(123,196,42,0.5)}
+select option{background:var(--gl-black)}
+textarea{resize:vertical;min-height:100px}
+.form-note{font-size:0.75rem;color:var(--gl-gray);line-height:1.6;margin-bottom:1.5rem}
+.payment-methods{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:0.5rem}
+.pay-pill{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);
+  font-size:0.72rem;color:rgba(253,246,227,0.5);padding:0.35rem 0.85rem;border-radius:100px;
+}
+.honeypot{display:none!important}
+.form-submit{width:100%;margin-top:0.5rem}
+.success-msg{
+  display:none;text-align:center;padding:2rem;
+  background:rgba(123,196,42,0.08);border:1px solid rgba(123,196,42,0.2);border-radius:12px;margin-top:1rem;
+}
+.success-msg h4{font-family:var(--font-d);font-size:1.5rem;color:var(--gl-lime);margin-bottom:0.5rem}
+.success-msg p{font-size:0.85rem;color:var(--gl-gray)}
+
+/* ── RESERVATIONS ── */
+#reservations{background:var(--gl-jungle);padding:5rem 0}
+.res-inner{max-width:760px;margin:0 auto;padding:0 2rem}
+
+/* ── CONTACT ── */
+#contact{background:var(--gl-black);padding:4rem 0}
+.contact-inner{max-width:1140px;margin:0 auto;padding:0 2rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin-top:2.5rem}
+.contact-card{
+  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);
+  border-radius:14px;padding:1.75rem;
+}
+.contact-icon{font-size:1.5rem;margin-bottom:0.75rem}
+.contact-label{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gl-lime);font-weight:600;margin-bottom:0.35rem}
+.contact-value{font-size:0.95rem;color:var(--gl-cream);line-height:1.5}
+.contact-sub{font-size:0.78rem;color:var(--gl-gray);margin-top:0.2rem}
+.social-row{display:flex;gap:0.75rem;margin-top:1rem}
+.social-btn{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  color:var(--gl-gray);font-size:0.72rem;font-weight:600;letter-spacing:0.05em;
+  padding:0.4rem 0.9rem;border-radius:8px;transition:all 0.2s;
+}
+.social-btn:hover{color:var(--gl-lime);border-color:rgba(123,196,42,0.4)}
+.map-embed{
+  width:100%;height:240px;border-radius:12px;overflow:hidden;margin-top:2rem;
+  border:1px solid rgba(255,255,255,0.07);
+}
+.map-embed iframe{width:100%;height:100%;border:none;filter:grayscale(80%) invert(90%) contrast(90%)}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--gl-jungle);
+  border-top:1px solid rgba(123,196,42,0.15);
+  padding:2rem;text-align:center;
+}
+footer p{font-size:0.75rem;color:rgba(253,246,227,0.25);letter-spacing:0.05em}
+footer p span{color:var(--gl-lime)}
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:1010;
+  background:#25D366;color:white;
+  width:54px;height:54px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;box-shadow:0 4px 16px rgba(37,211,102,0.4);
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,0.5)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  #about .about-grid{grid-template-columns:1fr}
+  .delivery-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  .nav-links{display:none}
+  .nav-links.open{
+    display:flex;flex-direction:column;
+    position:fixed;top:64px;left:0;right:0;bottom:0;
+    background:#0D0D0D;padding:2rem;gap:0.25rem;
+    z-index:999;overflow-y:auto;
+  }
+  .nav-links.open a{font-size:1rem;padding:1rem 1.25rem;text-align:left;border-radius:10px;border-bottom:1px solid rgba(255,255,255,0.05)}
+  .nav-links.open a:last-of-type{border:none}
+  .nav-links.open .nav-cta{background:var(--gl-lime);color:var(--gl-black)!important;text-align:center;margin-top:0.5rem;justify-content:center}
+  .burger{display:flex}
+  .hero-img{width:100%;mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,0.15) 20%,black 60%);opacity:0.35}
+  .form-row{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .delivery-zones{grid-template-columns:1fr 1fr}
+  .hero-content{padding:6rem 1.5rem 4rem}
+  .add-btn{padding:0.6rem 1rem;font-size:0.78rem}
+}
+/* ── CART ── */
+.add-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:0.4rem;
+  background:rgba(123,196,42,0.12);border:1px solid rgba(123,196,42,0.25);
+  color:var(--gl-lime);font-size:0.75rem;font-weight:700;letter-spacing:0.06em;
+  padding:0.55rem 1rem;min-height:36px;border-radius:8px;cursor:pointer;
+  transition:all 0.2s;margin-top:0.65rem;font-family:var(--font-b);
+  white-space:nowrap;
+}
+.add-btn:hover{background:var(--gl-lime);color:var(--gl-black);border-color:var(--gl-lime)}
+.add-btn.has-variant{background:rgba(245,166,35,0.1);border-color:rgba(245,166,35,0.3);color:var(--gl-gold)}
+.add-btn.has-variant:hover{background:var(--gl-gold);color:var(--gl-black)}
+
+/* variant picker modal */
+.variant-modal{
+  display:none;position:fixed;inset:0;z-index:1100;
+  background:rgba(0,0,0,0.7);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;padding:1rem;
+}
+.variant-modal.open{display:flex}
+.variant-box{
+  background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);
+  border-radius:16px;padding:2rem;max-width:400px;width:100%;
+}
+.variant-box h4{font-family:var(--font-h);font-size:1.1rem;color:var(--gl-cream);margin-bottom:1.25rem}
+.variant-opts{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem}
+.variant-opt{
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px;padding:0.75rem 1rem;cursor:pointer;transition:all 0.15s;
+}
+.variant-opt:hover,.variant-opt.selected{background:rgba(123,196,42,0.1);border-color:rgba(123,196,42,0.4)}
+.variant-opt-name{font-size:0.88rem;color:var(--gl-cream)}
+.variant-opt-price{font-family:var(--font-d);font-size:1rem;color:var(--gl-gold)}
+.variant-actions{display:flex;gap:0.75rem}
+.variant-cancel{flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--gl-gray);font-family:var(--font-b);font-size:0.85rem;padding:0.7rem;border-radius:8px;cursor:pointer;transition:all 0.2s}
+.variant-cancel:hover{border-color:rgba(255,255,255,0.25);color:var(--gl-cream)}
+.variant-confirm{flex:2;background:var(--gl-lime);color:var(--gl-black);border:none;font-family:var(--font-b);font-size:0.85rem;font-weight:700;padding:0.7rem;border-radius:8px;cursor:pointer;transition:all 0.2s}
+.variant-confirm:hover{background:#8fd432}
+
+/* cart sidebar */
+.cart-sidebar{
+  position:fixed;right:0;top:0;bottom:0;width:360px;max-width:95vw;
+  background:#141414;border-left:1px solid rgba(255,255,255,0.08);
+  z-index:1050;display:flex;flex-direction:column;
+  transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.cart-sidebar.open{transform:translateX(0)}
+.cart-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.25rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.cart-title{font-family:var(--font-d);font-size:1.4rem;letter-spacing:0.04em;color:var(--gl-cream)}
+.cart-close{background:none;border:none;color:var(--gl-gray);font-size:1.4rem;cursor:pointer;padding:0.25rem;line-height:1;transition:color 0.2s}
+.cart-close:hover{color:var(--gl-cream)}
+.cart-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--gl-gray);font-size:0.88rem}
+.cart-empty-icon{font-size:3rem;opacity:0.3}
+.cart-items{flex:1;overflow-y:auto;padding:1rem 1.5rem;display:flex;flex-direction:column;gap:0.75rem}
+.cart-item{
+  display:flex;align-items:center;gap:0.75rem;
+  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);
+  border-radius:10px;padding:0.75rem;
+}
+.cart-item-name{flex:1;font-size:0.85rem;color:var(--gl-cream);line-height:1.3}
+.cart-item-sub{font-size:0.72rem;color:var(--gl-gray)}
+.cart-item-price{font-family:var(--font-d);font-size:1rem;color:var(--gl-gold);white-space:nowrap}
+.qty-ctrl{display:flex;align-items:center;gap:0.4rem}
+.qty-btn{
+  width:26px;height:26px;border-radius:6px;border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.05);color:var(--gl-cream);
+  font-size:1rem;line-height:1;cursor:pointer;transition:all 0.15s;
+  display:flex;align-items:center;justify-content:center;font-family:var(--font-b);
+}
+.qty-btn:hover{background:rgba(123,196,42,0.15);border-color:rgba(123,196,42,0.4);color:var(--gl-lime)}
+.qty-num{font-size:0.88rem;font-weight:700;color:var(--gl-cream);min-width:18px;text-align:center}
+.cart-footer{
+  padding:1.25rem 1.5rem;border-top:1px solid rgba(255,255,255,0.07);
+  display:flex;flex-direction:column;gap:0.75rem;
+}
+.cart-total-row{display:flex;justify-content:space-between;align-items:baseline}
+.cart-total-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gl-gray);font-weight:600}
+.cart-total-value{font-family:var(--font-d);font-size:1.8rem;color:var(--gl-lime);letter-spacing:0.02em}
+.cart-checkout-btn{
+  background:var(--gl-lime);color:var(--gl-black);border:none;
+  font-family:var(--font-b);font-size:0.9rem;font-weight:700;
+  padding:1rem;border-radius:10px;cursor:pointer;transition:all 0.2s;
+  width:100%;
+}
+.cart-checkout-btn:hover{background:#8fd432}
+.cart-note{font-size:0.72rem;color:var(--gl-gray);text-align:center}
+.cart-overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1040;
+}
+.cart-overlay.open{display:block}
+
+/* cart fab */
+.cart-fab{
+  position:fixed;bottom:5rem;right:1.5rem;z-index:1010;
+  background:var(--gl-lime);color:var(--gl-black);
+  border:none;border-radius:50px;height:48px;padding:0 1.25rem;
+  display:none;align-items:center;gap:0.5rem;cursor:pointer;
+  font-family:var(--font-b);font-size:0.82rem;font-weight:700;
+  box-shadow:0 4px 20px rgba(123,196,42,0.4);transition:all 0.2s;
+}
+.cart-fab.visible{display:flex}
+.cart-fab:hover{background:#8fd432;transform:translateY(-2px)}
+.cart-fab-count{
+  background:var(--gl-black);color:var(--gl-lime);
+  border-radius:50%;width:20px;height:20px;font-size:0.72rem;
+  display:flex;align-items:center;justify-content:center;font-weight:700;
+}
+
+[data-en]{display:none}
+body.en [data-pt]{display:none}
+body.en [data-en]{display:block}
+body.en span[data-pt]{display:none}
+body.en span[data-en]{display:inline}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <img src="assets/logo.jpg" alt="Gran Latino">
+    <span>GRAN LATINO</span>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="#about" data-pt>Sobre</a><a href="#about" data-en>About</a>
+    <a href="#menu" data-pt>Menu</a><a href="#menu" data-en>Menu</a>
+    <a href="#delivery" data-pt>Entregas</a><a href="#delivery" data-en>Delivery</a>
+    <a href="#reservations" data-pt>Reservas</a><a href="#reservations" data-en>Reservations</a>
+    <a href="#contact" data-pt>Contacto</a><a href="#contact" data-en>Contact</a>
+    <a href="#order" class="nav-cta" data-pt>🌮 Encomendar</a>
+    <a href="#order" class="nav-cta" data-en>🌮 Order Now</a>
+    <button class="lang-btn" id="langToggle">EN</button>
+  </div>
+  <div style="display:flex;align-items:center;gap:0.5rem" class="nav-mobile-right">
+    <button class="lang-btn" id="langToggleMobile" style="display:none">EN</button>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <img src="assets/tacos.png" class="hero-img" alt="Tacos Gran Latino">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-kicker">
+      <span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--gl-lime);display:inline-block"></span>
+      <span data-pt>Portimão, Algarve</span>
+      <span data-en>Portimão, Algarve</span>
+    </div>
+    <h1>
+      <em>GRAN</em>
+      LATINO
+      <span>TACO BAR</span>
+    </h1>
+    <p class="hero-sub" data-pt>Cozinha latina autêntica no coração de Portimão. Tacos, Burritos, Ceviche e Cocktails com alma.</p>
+    <p class="hero-sub" data-en>Authentic Latin cuisine in the heart of Portimão. Tacos, Burritos, Ceviche and soulful Cocktails.</p>
+    <div class="hero-badges">
+      <span class="badge-item"><span class="dot"></span><span data-pt>4.9 ★ TripAdvisor</span><span data-en>4.9 ★ TripAdvisor</span></span>
+      <span class="badge-item"><span class="dot"></span><span data-pt>Seg.–Sex: 12h–22h30 · Sáb: 17h–22h30</span><span data-en>Mon–Fri: 12–10:30pm · Sat: 5–10:30pm</span></span>
+    </div>
+    <div class="hero-actions">
+      <a href="#order" class="btn-primary"><span data-pt>🌮 Encomendar para casa</span><span data-en>🌮 Order Delivery</span></a>
+      <a href="#menu" class="btn-secondary"><span data-pt>Ver Menu</span><span data-en>See Menu</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div class="info-strip">
+  <div class="strip-item"><span class="strip-icon">📍</span><span data-pt>R. Dr. João Vitorino Mealha 11, Portimão</span><span data-en>R. Dr. João Vitorino Mealha 11, Portimão</span></div>
+  <div class="strip-item"><span class="strip-icon">📞</span><strong>+351 963 169 878</strong></div>
+  <div class="strip-item"><span class="strip-icon">🕐</span><span data-pt>Seg.–Sex: 12h–22h30 · Sáb: 17h–22h30</span><span data-en>Mon–Fri: 12–10:30pm · Sat: 5–10:30pm</span></div>
+  <div class="strip-item"><span class="strip-icon">🚴</span><span data-pt>Entregas: Portimão · Alvor · Parchal · Ferragudo</span><span data-en>Delivery: Portimão · Alvor · Parchal · Ferragudo</span></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="section">
+  <div class="about-grid">
+    <div class="about-imgs">
+      <div class="about-img-main"><img src="assets/bar.png" alt="Interior Gran Latino" loading="lazy"></div>
+      <div class="about-img-sm"><img src="assets/food3.jpg" alt="Flautas" loading="lazy"></div>
+      <div class="about-img-sm"><img src="assets/ceviche.png" alt="Ceviche" loading="lazy"></div>
+    </div>
+    <div class="about-text">
+      <div class="section-label" data-pt>Sobre Nós</div>
+      <div class="section-label" data-en>About Us</div>
+      <h2 class="section-title" data-pt>SABOR SEM<br><span style="color:var(--gl-lime)">FRONTEIRAS</span></h2>
+      <h2 class="section-title" data-en>NO BORDERS,<br><span style="color:var(--gl-lime)">ALL FLAVOR</span></h2>
+      <p data-pt>Somos o Gran Latino Taco Bar — um pedaço da América Latina no Algarve. Ingredientes frescos, receitas com raiz e sabores que fazem voltar todas as semanas.</p>
+      <p data-en>We are Gran Latino Taco Bar — a slice of Latin America in the Algarve. Fresh ingredients, authentic recipes and flavours that keep you coming back every week.</p>
+      <p data-pt>Dos Tacos Birria com caldo para mergulhar, ao Ceviche Peruano feito na hora — cada prato é preparado com cuidado e servido com alma.</p>
+      <p data-en>From slow-cooked Birria Tacos with dipping broth, to freshly prepared Peruvian Ceviche — every dish is crafted with care and served with soul.</p>
+      <div class="about-stats">
+        <div class="stat"><div class="stat-num" style="color:var(--gl-gold)">4.9★</div><div class="stat-label" data-pt>TripAdvisor</div><div class="stat-label" data-en>TripAdvisor</div></div>
+        <div class="stat"><div class="stat-num">+30</div><div class="stat-label" data-pt>Avaliações</div><div class="stat-label" data-en>Reviews</div></div>
+        <div class="stat"><div class="stat-num" style="color:var(--gl-magenta)">4</div><div class="stat-label" data-pt>Zonas de Entrega</div><div class="stat-label" data-en>Delivery Zones</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<div class="divider"></div>
+<div style="padding:1rem 0 2rem">
+  <div class="gallery-strip">
+    <div class="gal-item"><img src="assets/food2.jpg" alt="Tábua de tacos" loading="lazy"><div class="gal-label" data-pt>Tábua Variada</div><div class="gal-label" data-en>Mixed Board</div></div>
+    <div class="gal-item"><img src="assets/food.jpg" alt="Mesa completa" loading="lazy"><div class="gal-label" data-pt>Para Partilhar</div><div class="gal-label" data-en>To Share</div></div>
+    <div class="gal-item"><img src="assets/food4.jpg" alt="Tacos macios" loading="lazy"><div class="gal-label" data-pt>Tacos Macios</div><div class="gal-label" data-en>Soft Tacos</div></div>
+    <div class="gal-item"><img src="assets/food5.jpg" alt="Coronitas" loading="lazy"><div class="gal-label" data-pt>Coronitas</div><div class="gal-label" data-en>Coronitas</div></div>
+    <div class="gal-item"><img src="assets/food3.jpg" alt="Flautas" loading="lazy"><div class="gal-label" data-pt>Flautas</div><div class="gal-label" data-en>Flautas</div></div>
+    <div class="gal-item"><img src="assets/ceviche.png" alt="Ceviche" loading="lazy"><div class="gal-label" data-pt>Ceviche</div><div class="gal-label" data-en>Ceviche</div></div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- MENU -->
+<section id="menu">
+<div class="menu-inner">
+  <div class="section-label" data-pt>O Nosso Menu</div>
+  <div class="section-label" data-en>Our Menu</div>
+  <h2 class="section-title" data-pt>MENU <span style="color:var(--gl-lime)">COMPLETO</span></h2>
+  <h2 class="section-title" data-en>FULL <span style="color:var(--gl-lime)">MENU</span></h2>
+  <p class="section-sub" style="margin-bottom:2.5rem" data-pt>Preços do restaurante. Encomenda direto no site e recebe em casa sem comissões de plataforma.</p>
+  <p class="section-sub" style="margin-bottom:2.5rem" data-en>Restaurant prices. Order directly on our site and get it delivered home with no platform fees.</p>
+
+  <div class="menu-tabs">
+    <button class="tab-btn active" onclick="switchTab('entradas',this)"><span data-pt>Entradas</span><span data-en>Starters</span></button>
+    <button class="tab-btn" onclick="switchTab('tacos',this)">Tacos</button>
+    <button class="tab-btn" onclick="switchTab('principais',this)"><span data-pt>Principais</span><span data-en>Mains</span></button>
+    <button class="tab-btn" onclick="switchTab('bebidas',this)"><span data-pt>Bebidas</span><span data-en>Drinks</span></button>
+  </div>
+
+  <!-- ENTRADAS -->
+  <div class="tab-panel active" id="tab-entradas">
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Guacamole</span><span class="menu-item-price">6,50€</span></div>
+        <div class="menu-item-desc" data-pt>Guacamole fresco e pico de gallo, servidos com totopos de milho crocantes.</div>
+        <div class="menu-item-desc" data-en>Fresh guacamole and pico de gallo, served with crispy corn tortilla chips.</div>
+        <button class="add-btn" data-add="guacamole" onclick="addToCart('guacamole')">+ Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Nachos</span><span class="menu-item-price">6,00€+</span></div>
+        <div class="menu-item-vars"><span class="var-pill" data-pt>Queijo 6€</span><span class="var-pill" data-en>Cheese 6€</span><span class="var-pill" data-pt>Carne/Frango 7€</span><span class="var-pill" data-en>Beef/Chicken 7€</span></div>
+        <div class="menu-item-desc" data-pt>Totopos cobertos com queijo derretido, carne ou frango e pico de gallo.</div>
+        <div class="menu-item-desc" data-en>Crispy tortilla chips with melted cheese, beef or chicken and pico de gallo.</div>
+        <button class="add-btn has-variant" onclick="openVariant('Nachos',[{id:'nachos-queijo',label:'Nachos — Queijo',price:6},{id:'nachos-carne',label:'Nachos — Carne',price:7},{id:'nachos-frango',label:'Nachos — Frango',price:7}])">+ Escolher opção</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Quesadilla</span><span class="menu-item-price">6,00€+</span></div>
+        <div class="menu-item-vars"><span class="var-pill" data-pt>Queijo 6€</span><span class="var-pill" data-en>Cheese 6€</span><span class="var-pill" data-pt>Carne/Frango 7€</span><span class="var-pill" data-en>Beef/Chicken 7€</span></div>
+        <div class="menu-item-desc" data-pt>Tortillas de trigo recheadas com queijo, frango ou carne.</div>
+        <div class="menu-item-desc" data-en>Wheat tortillas filled with cheese, chicken, or beef.</div>
+        <button class="add-btn has-variant" onclick="openVariant('Quesadilla',[{id:'quesadilla-queijo',label:'Quesadilla — Queijo',price:6},{id:'quesadilla-carne',label:'Quesadilla — Carne',price:7},{id:'quesadilla-frango',label:'Quesadilla — Frango',price:7}])">+ Escolher opção</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Tostones del Caribe</span><span class="menu-item-price">7,50€</span></div>
+        <div class="menu-item-desc" data-pt>Banana da terra crocante com carne picada barrada com abacate, pico de gallo fresco e nata.</div>
+        <div class="menu-item-desc" data-en>Crispy mashed golden plantain stuffed with minced meat, topped with avocado, fresh pico de gallo and cream.</div>
+        <button class="add-btn" data-add="tostones" onclick="addToCart('tostones')">+ Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Yuca Frita</span><span class="menu-item-price">6,00€</span></div>
+        <div class="menu-item-desc" data-pt>Cesta de mandioca frita acompanhada de dois molhos da casa.</div>
+        <div class="menu-item-desc" data-en>Basket of fried cassava with two house sauces.</div>
+        <button class="add-btn" data-add="yuca" onclick="addToCart('yuca')">+ Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name spicy">Los Charutos</span><span class="menu-item-price">7,50€</span></div>
+        <div class="menu-item-desc" data-pt>Quatro tortillas de milho recheadas de frango e queijo, cobertos com molho da casa, cebola roxa, abacate e pico de gallo.</div>
+        <div class="menu-item-desc" data-en>Four corn tortillas stuffed with chicken and cheese, topped with house sauce, red onion, avocado and pico de gallo.</div>
+        <button class="add-btn" data-add="charutos" onclick="addToCart('charutos')">+ Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name spicy">Ceviche Peruano</span><span class="menu-item-price">9,50€</span></div>
+        <div class="menu-item-desc" data-pt>Peixe fresco suavemente curado com lima, realçado com leite de tigre e cebola roxa.</div>
+        <div class="menu-item-desc" data-en>Fresh fish gently cured with lime, enhanced with leche de tigre and red onion.</div>
+        <button class="add-btn" data-add="ceviche" onclick="addToCart('ceviche')">+ Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name spicy">Cesta de Camarões</span><span class="menu-item-price">13,00€</span></div>
+        <div class="menu-item-desc" data-pt>Delicados camarões marinados com toque subtil de pimenta e sabores frescos de cítricos, acompanhados de duas Coronitas geladas.</div>
+        <div class="menu-item-desc" data-en>Delicate shrimp marinated with a subtle touch of pepper and fresh, citrusy flavors, accompanied by two chilled Coronitas.</div>
+        <button class="add-btn" data-add="cesta-camaroes" onclick="addToCart('cesta-camaroes')">+ Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name spicy">Aguachile de Camarão</span><span class="menu-item-price">9,50€</span></div>
+        <div class="menu-item-desc" data-pt>Camarões marinados numa mistura vibrante de lima, coentros e chile, servidos com cebola roxa e pepino acompanhados com totopos.</div>
+        <div class="menu-item-desc" data-en>Shrimp marinated in a vibrant blend of lime, coriander and chile, served with red onion and cucumber with totopos.</div>
+        <button class="add-btn" data-add="aguachile" onclick="addToCart('aguachile')">+ Adicionar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TACOS -->
+  <div class="tab-panel" id="tab-tacos">
+    <div class="menu-highlight">
+      <h3 data-pt>🌮 Tábua para Duas Pessoas</h3>
+      <h3 data-en>🌮 Tasting Board for Two</h3>
+      <p data-pt>8 tacos variados: 2 Mac Tacos + 2 Tinga de Pollo + 2 Tacos Birria + 2 Tacos Gran Latino de Camarão</p>
+      <p data-en>8 assorted tacos: 2 Mac Tacos + 2 Tinga de Pollo + 2 Birria Tacos + 2 Gran Latino Shrimp Tacos</p>
+      <div class="price-big">25,00€</div>
+      <button class="add-btn" data-add="tabua-duas" onclick="addToCart('tabua-duas')" style="margin-top:1rem">+ Adicionar</button>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name spicy">Tacos Birria</span><span class="menu-item-price">14,00€</span></div>
+        <div class="menu-item-desc" data-pt>Tortilhas de milho com carne bovina cozida lentamente em especiarias, cebola, coentro fresco e caldo para mergulhar.</div>
+        <div class="menu-item-desc" data-en>Corn tortillas with succulent beef slowly cooked with spices, onions, fresh cilantro and dipping broth.</div>
+        <button class="add-btn" data-add="birria" onclick="addToCart('birria')">+ Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Gran Latino 🦐</span><span class="menu-item-price">11,50€+</span></div>
+        <div class="menu-item-vars"><span class="var-pill" data-pt>Frango 12,50€</span><span class="var-pill" data-en>Chicken 12.50€</span><span class="var-pill" data-pt>Veggie 11,50€</span><span class="var-pill" data-en>Veggie 11.50€</span><span class="var-pill" data-pt>Carne 13,50€</span><span class="var-pill" data-en>Beef 13.50€</span><span class="var-pill" data-pt>Camarão 13,50€</span><span class="var-pill" data-en>Shrimp 13.50€</span></div>
+        <div class="menu-item-desc" data-pt>Especialidade da casa. Tortilhas recheadas com carne suculenta, frango ou camarão, abacate, tomate, alho e chile pasilla. Acabados com cebola crocante e coentros.</div>
+        <div class="menu-item-desc" data-en>House specialty. Tortillas with succulent meat, chicken or shrimp, avocado, tomato, garlic and pasilla chili. Finished with crispy onion and fresh cilantro.</div>
+        <button class="add-btn has-variant" onclick="openVariant('Gran Latino',[{id:'gran-veggie',label:'Gran Latino — Veggie',price:11.50},{id:'gran-frango',label:'Gran Latino — Frango',price:12.50},{id:'gran-carne',label:'Gran Latino — Carne',price:13.50},{id:'gran-camarao',label:'Gran Latino — Camarão',price:13.50}])">+ Escolher opção</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Tinga de Pollo</span><span class="menu-item-price">12,50€</span></div>
+        <div class="menu-item-desc" data-pt>Tortilhas com abacate recheadas com frango desfiado cozido em molho de tomate, chipotle e especiarias, cebola roxa, coentro fresco.</div>
+        <div class="menu-item-desc" data-en>Avocado tortillas with shredded chicken cooked in tomato, chipotle and spice sauce, red onion and fresh cilantro.</div>
+        <button class="add-btn" data-add="tinga" onclick="addToCart('tinga')">+ Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">MacTacos</span><span class="menu-item-price">12,50€</span></div>
+        <div class="menu-item-desc" data-pt>Tortilhas com carne moída temperada e queijo derretido, acompanhadas de alface crocante, tomate fresco e molho especial.</div>
+        <div class="menu-item-desc" data-en>Tortillas with seasoned ground beef and melted cheese, crisp lettuce, fresh tomato and special sauce.</div>
+        <button class="add-btn" data-add="mactacos" onclick="addToCart('mactacos')">+ Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name spicy">Tacos Crocantes de Carnita</span><span class="menu-item-price">12,50€</span></div>
+        <div class="menu-item-desc" data-pt>Tortilhas de milho fritas com abacate, recheadas com mistura de carne, cebola roxa, coentro e molho da casa.</div>
+        <div class="menu-item-desc" data-en>Fried corn tortillas with avocado, filled with meat, red onion, cilantro and house sauce.</div>
+        <button class="add-btn" data-add="crocantes" onclick="addToCart('crocantes')">+ Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name spicy">Tacos Governador 🦐</span><span class="menu-item-price">13,50€</span></div>
+        <div class="menu-item-desc" data-pt>Tortilhas com camarões salteados com especiarias, molho cremoso de pimentões e cebola, queijo derretido e coentro fresco.</div>
+        <div class="menu-item-desc" data-en>Tortillas with shrimp sautéed with spices, creamy bell pepper and onion sauce, melted cheese and fresh cilantro.</div>
+        <button class="add-btn" data-add="governador" onclick="addToCart('governador')">+ Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Tacos Veggie</span><span class="menu-item-price">9,50€</span></div>
+        <div class="menu-item-desc" data-pt>Tortilhas de milho com abacate, beringela, tomate, cebola, pimentão e cogumelos.</div>
+        <div class="menu-item-desc" data-en>Corn tortillas with avocado, eggplant, tomato, onion, bell pepper and mushrooms.</div>
+        <button class="add-btn" data-add="veggie-taco" onclick="addToCart('veggie-taco')">+ Adicionar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPAIS -->
+  <div class="tab-panel" id="tab-principais">
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Burrito</span><span class="menu-item-price">12,50€+</span></div>
+        <div class="menu-item-vars"><span class="var-pill" data-pt>Frango 13,50€</span><span class="var-pill" data-en>Chicken 13.50€</span><span class="var-pill" data-pt>Vegetariano 12,50€</span><span class="var-pill" data-en>Veggie 12.50€</span><span class="var-pill" data-pt>Carne 14€</span><span class="var-pill" data-en>Beef 14€</span><span class="var-pill" data-pt>Camarão 14€</span><span class="var-pill" data-en>Shrimp 14€</span></div>
+        <div class="menu-item-desc" data-pt>Tortilla de trigo com feijão, queijo derretido, salteado com cebola e pimentões frescos.</div>
+        <div class="menu-item-desc" data-en>Wheat tortilla with beans, melted cheese, sautéed with onion and fresh bell peppers.</div>
+        <button class="add-btn has-variant" onclick="openVariant('Burrito',[{id:'burrito-veggie',label:'Burrito — Vegetariano',price:12.50},{id:'burrito-frango',label:'Burrito — Frango',price:13.50},{id:'burrito-carne',label:'Burrito — Carne',price:14},{id:'burrito-camarao',label:'Burrito — Camarão',price:14}])">+ Escolher opção</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name spicy">Quesatinga</span><span class="menu-item-price">12,00€</span></div>
+        <div class="menu-item-desc" data-pt>Tortilhas recheadas com frango desfiado cozido em molho de tomate e chipotle, combinadas com queijo derretido.</div>
+        <div class="menu-item-desc" data-en>Tortillas filled with shredded chicken cooked in tomato and chipotle sauce, combined with melted cheese.</div>
+        <button class="add-btn" data-add="quesatinga" onclick="addToCart('quesatinga')">+ Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Patacón de Camarão 🦐</span><span class="menu-item-price">13,50€</span></div>
+        <div class="menu-item-desc" data-pt>4 cestas de banana da terra recheadas com camarões envoltos em cremoso molho de leite de coco, pimentões coloridos e cebola.</div>
+        <div class="menu-item-desc" data-en>4 baskets of fried plantain filled with shrimp in a creamy coconut milk sauce, with colorful bell peppers and onion.</div>
+        <button class="add-btn" data-add="patacon" onclick="addToCart('patacon')">+ Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name spicy">QuesaBirria</span><span class="menu-item-price">13,50€</span></div>
+        <div class="menu-item-desc" data-pt>Tortilhas douradas na chapa com carne bovina desfiada e temperada, queijo derretido. Servidas com molho saboroso para mergulhar.</div>
+        <div class="menu-item-desc" data-en>Griddled tortillas with shredded seasoned beef and melted cheese. Served with a tasty dipping sauce.</div>
+        <button class="add-btn" data-add="quesabirria" onclick="addToCart('quesabirria')">+ Adicionar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEBIDAS -->
+  <div class="tab-panel" id="tab-bebidas">
+    <div class="drinks-cols">
+      <div class="drinks-cat">
+        <h4 data-pt>Bebidas e Refrigerantes</h4>
+        <h4 data-en>Drinks &amp; Soft Drinks</h4>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name" data-pt>Água 0,5cl</span><span class="drink-name" data-en>Water 0.5cl</span><span class="drink-price">1,20€</span></div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name" data-pt>Refrigerantes</span><span class="drink-name" data-en>Soft Drinks</span><span class="drink-price">2,00€</span></div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name" data-pt>Limonadas</span><span class="drink-name" data-en>Lemonades</span><span class="drink-price">3,50€</span></div><div class="drink-desc" data-pt>Lima · Morango · Maracujá · Goiaba · Tamarindo · Manga · Frutos Vermelhos</div><div class="drink-desc" data-en>Lime · Strawberry · Passion Fruit · Guava · Tamarind · Mango · Red Berries</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Coronita / Corona</span><span class="drink-price">2,50€ / 3,50€</span></div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name" data-pt>Cerveja Importada</span><span class="drink-name" data-en>Imported Beer</span><span class="drink-price">3,50€</span></div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Gin Tónico</span><span class="drink-price">8,00€</span></div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name" data-pt>Copo de Vinho</span><span class="drink-name" data-en>Glass of Wine</span><span class="drink-price">3,00€</span></div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name" data-pt>Garrafa de Vinho</span><span class="drink-name" data-en>Bottle of Wine</span><span class="drink-price">14,00€</span></div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Café</span><span class="drink-price">1,00€</span></div></div>
+      </div>
+      <div class="drinks-cat">
+        <h4>Margaritas 6,50€</h4>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name" data-pt>Tradicional</span><span class="drink-name" data-en>Traditional</span></div><div class="drink-desc">Tequila · Triple Sec · Sumo de Lima</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Coco Blue</span></div><div class="drink-desc" data-pt>Tequila · Triple Sec · Lima · Creme de Coco · Coração Azul</div><div class="drink-desc" data-en>Tequila · Triple Sec · Lime · Coconut Cream · Blue Heart</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Goiaba / Guava</span></div><div class="drink-desc">Tequila · Triple Sec · Lima · Goiaba</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Maracujá</span></div><div class="drink-desc">Tequila · Triple Sec · Lima · Maracujá</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Tamarindo</span></div><div class="drink-desc">Tequila · Triple Sec · Lima · Tamarindo</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Fresa / Morango</span></div><div class="drink-desc">Tequila · Triple Sec · Lima · Morango</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Manga / Mango</span></div><div class="drink-desc">Tequila · Triple Sec · Lima · Manga</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name" data-pt>Manga Picante</span><span class="drink-name" data-en>Spicy Mango</span></div><div class="drink-desc">Tequila · Triple Sec · Lima · Manga · Picante</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name" data-pt>Frutos Vermelhos</span><span class="drink-name" data-en>Red Berries</span></div><div class="drink-desc">Tequila · Triple Sec · Lima · Frutos Vermelhos</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Gran Latino</span><span class="drink-price">7,00€</span></div><div class="drink-desc" data-pt>A consultar</div><div class="drink-desc" data-en>Ask us</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">El Ahogado</span><span class="drink-price">9,00€</span></div><div class="drink-desc" data-pt>Margarita com uma Coronita "afogada"</div><div class="drink-desc" data-en>Margarita with a "drowned" Coronita</div></div>
+      </div>
+      <div class="drinks-cat">
+        <h4>Cocktails 7,00€</h4>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Caipirinha</span></div><div class="drink-desc">Cachaça · Gelo · Sumo de Lima</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Mojito Clássico</span></div><div class="drink-desc">Rum · Hortelã · Sumo de Lima</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Mai Tai</span></div><div class="drink-desc">Rum · Amaretto · Triple Sec · Ananás · Lima</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Colada Caribenha</span></div><div class="drink-desc">Rum · Ananás · Creme de Coco · Canela</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Rico Puerto Rico</span></div><div class="drink-desc">Rum · Coco · Coração Azul · Lima</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Saltamente Mexicano</span></div><div class="drink-desc">Mezcal · Licor de Cacau · Menta · Creme de Leite</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Hotel Nacional</span></div><div class="drink-desc">Rum · Pêssego · Ananás · Lima</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Huracán</span></div><div class="drink-desc">Rum · Lima · Laranja · Ananás · Maracujá · Granadina</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Bahama Mama</span></div><div class="drink-desc">Rum · Coco · Laranja · Ananás · Lima · Granadina</div></div>
+      </div>
+      <div class="drinks-cat">
+        <h4 data-pt>Shots 3,00€</h4>
+        <h4 data-en>Shots 3.00€</h4>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Colarinho</span></div><div class="drink-desc">Rum Branco · Lima · Pitada de Sal</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Lemon Drop</span></div><div class="drink-desc">Vodka · Lima · Açúcar na Borda</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Café Mexicano</span></div><div class="drink-desc">Licor de Café · Tequila · Pitada de Canela</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Beijo Cremoso</span></div><div class="drink-desc">Grenadina · Sambuca · Baileys</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Kamikaze Shot</span></div><div class="drink-desc">Vodka · Coração Azul · Lima</div></div>
+        <div class="drink-item"><div class="drink-item-row"><span class="drink-name">Coco Beach</span></div><div class="drink-desc">Rum Coco · Rum · Creme de Coco · Lima</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- DELIVERY -->
+<section id="delivery">
+<div class="delivery-inner">
+  <div class="section-label" data-pt>Entregas a Domicílio</div>
+  <div class="section-label" data-en>Home Delivery</div>
+  <h2 class="section-title" data-pt>ENTREGAMOS<br><span style="color:var(--gl-lime)">EM CASA</span></h2>
+  <h2 class="section-title" data-en>WE DELIVER<br><span style="color:var(--gl-lime)">TO YOUR DOOR</span></h2>
+  <p class="section-sub" data-pt>Encomenda diretamente no nosso site. Sem comissões de plataforma — os preços são os mesmos que no restaurante.</p>
+  <p class="section-sub" data-en>Order directly on our website. No platform fees — prices are the same as in the restaurant.</p>
+
+  <div class="delivery-grid">
+    <div>
+      <p style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gl-lime);font-weight:600;margin-bottom:1rem" data-pt>Zonas de Entrega</p>
+      <p style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gl-lime);font-weight:600;margin-bottom:1rem" data-en>Delivery Zones</p>
+      <div class="delivery-zones">
+        <div class="zone-card"><div class="zone-name">PORTIMÃO</div><div class="zone-note" data-pt>Sede · Prioridade máx.</div><div class="zone-note" data-en>Main location</div></div>
+        <div class="zone-card"><div class="zone-name">ALVOR</div><div class="zone-note">~8 min</div></div>
+        <div class="zone-card"><div class="zone-name">PARCHAL</div><div class="zone-note">~5 min</div></div>
+        <div class="zone-card"><div class="zone-name">FERRAGUDO</div><div class="zone-note">~10 min</div></div>
+      </div>
+      <p style="font-size:0.78rem;color:var(--gl-gray);margin-top:1rem" data-pt>📞 Após submeter a encomenda confirmamos por WhatsApp com o tempo de entrega estimado.</p>
+      <p style="font-size:0.78rem;color:var(--gl-gray);margin-top:1rem" data-en>📞 After submitting your order we confirm by WhatsApp with estimated delivery time.</p>
+      <p style="font-size:0.78rem;color:rgba(245,166,35,0.8);margin-top:0.5rem" data-pt>💳 Pagamento na entrega: MB Way · Dinheiro · Multibanco portátil</p>
+      <p style="font-size:0.78rem;color:rgba(245,166,35,0.8);margin-top:0.5rem" data-en>💳 Payment on delivery: MB Way · Cash · Card machine</p>
+    </div>
+    <div>
+      <p style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gl-lime);font-weight:600;margin-bottom:0.5rem" data-pt>Como Funciona</p>
+      <p style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gl-lime);font-weight:600;margin-bottom:0.5rem" data-en>How It Works</p>
+      <div class="delivery-how">
+        <div class="how-step"><div class="how-num">1</div><div class="how-text"><h4 data-pt>Escolhe o teu pedido</h4><h4 data-en>Choose your order</h4><p data-pt>Consulta o menu completo com preços do restaurante</p><p data-en>Browse our full menu with restaurant prices</p></div></div>
+        <div class="how-step"><div class="how-num">2</div><div class="how-text"><h4 data-pt>Preenche o formulário</h4><h4 data-en>Fill in the form</h4><p data-pt>Nome, morada, zona e pedido detalhado</p><p data-en>Name, address, zone and detailed order</p></div></div>
+        <div class="how-step"><div class="how-num">3</div><div class="how-text"><h4 data-pt>Confirmamos por WhatsApp</h4><h4 data-en>We confirm by WhatsApp</h4><p data-pt>Enviamos o tempo estimado de entrega</p><p data-en>We send you the estimated delivery time</p></div></div>
+        <div class="how-step"><div class="how-num">4</div><div class="how-text"><h4 data-pt>Entrega na tua porta</h4><h4 data-en>Delivery to your door</h4><p data-pt>Pagamento na entrega: MB Way, dinheiro ou multibanco</p><p data-en>Payment on delivery: MB Way, cash or card</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ORDER FORM -->
+<section id="order">
+<div class="order-inner">
+  <div class="section-label" style="text-align:center" data-pt>Encomenda Online</div>
+  <div class="section-label" style="text-align:center" data-en>Online Order</div>
+  <h2 class="section-title" style="text-align:center;margin-bottom:0.5rem" data-pt>ENCOMENDAR</h2>
+  <h2 class="section-title" style="text-align:center;margin-bottom:0.5rem" data-en>ORDER NOW</h2>
+  <p style="text-align:center;color:var(--gl-gray);font-size:0.88rem;margin-bottom:2.5rem" data-pt>Confirmaremos o teu pedido por WhatsApp em poucos minutos.</p>
+  <p style="text-align:center;color:var(--gl-gray);font-size:0.88rem;margin-bottom:2.5rem" data-en>We'll confirm your order by WhatsApp within a few minutes.</p>
+
+  <div class="form-card">
+    <form id="orderForm" action="https://formspree.io/f/xkgwpqzr" method="POST">
+      <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="🌮 Nova Encomenda — Gran Latino Taco Bar">
+      <div class="form-row">
+        <div class="form-group">
+          <label data-pt>Nome *</label>
+          <label data-en>Name *</label>
+          <input type="text" name="nome" placeholder="O teu nome" required>
+        </div>
+        <div class="form-group">
+          <label data-pt>Telefone / WhatsApp *</label>
+          <label data-en>Phone / WhatsApp *</label>
+          <input type="tel" name="telefone" placeholder="+351 9XX XXX XXX" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label data-pt>Zona de Entrega *</label>
+        <label data-en>Delivery Zone *</label>
+        <select name="zona" required>
+          <option value="" data-pt>Seleciona a zona...</option>
+          <option value="" data-en>Select zone...</option>
+          <option value="Portimão">Portimão</option>
+          <option value="Alvor">Alvor</option>
+          <option value="Parchal">Parchal</option>
+          <option value="Ferragudo">Ferragudo</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-pt>Morada de Entrega *</label>
+        <label data-en>Delivery Address *</label>
+        <input type="text" name="morada" placeholder="Rua, nº, andar..." required>
+      </div>
+      <div class="form-group">
+        <label data-pt>O Teu Pedido *</label>
+        <label data-en>Your Order *</label>
+        <textarea name="pedido" placeholder="Ex: 2x Tacos Birria, 1x Guacamole, 2x Coronita..." required></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label data-pt>Hora Desejada</label>
+          <label data-en>Preferred Time</label>
+          <input type="text" name="hora" placeholder="Ex: 20h00">
+        </div>
+        <div class="form-group">
+          <label data-pt>Pagamento</label>
+          <label data-en>Payment</label>
+          <select name="pagamento">
+            <option data-pt>MB Way</option>
+            <option data-en>MB Way</option>
+            <option data-pt>Dinheiro</option>
+            <option data-en>Cash</option>
+            <option data-pt>Multibanco (máquina)</option>
+            <option data-en>Card machine</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label data-pt>Notas Especiais</label>
+        <label data-en>Special Notes</label>
+        <input type="text" name="notas" placeholder="Alergias, sem coentros, etc...">
+      </div>
+      <p class="form-note" data-pt>⏱ Horário de entregas: Ter–Sáb 12h–15h · 18h–22h (última encomenda às 21h45). Pagamento na entrega.</p>
+      <p class="form-note" data-en>⏱ Delivery hours: Tue–Sat 12–3pm · 6–10pm (last order 9:45pm). Payment on delivery.</p>
+      <button type="submit" class="btn-primary form-submit" data-pt>🌮 Enviar Encomenda</button>
+      <button type="submit" class="btn-primary form-submit" data-en>🌮 Send Order</button>
+    </form>
+    <div class="success-msg" id="successMsg">
+      <h4 data-pt>Encomenda Recebida! 🌮</h4>
+      <h4 data-en>Order Received! 🌮</h4>
+      <p data-pt>Vamos confirmar por WhatsApp em breve. Obrigado!</p>
+      <p data-en>We'll confirm by WhatsApp shortly. Thank you!</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- RESERVATIONS -->
+<section id="reservations">
+<div class="res-inner">
+  <div class="section-label" style="text-align:center" data-pt>Reservas de Mesa</div>
+  <div class="section-label" style="text-align:center" data-en>Table Reservations</div>
+  <h2 class="section-title" style="text-align:center;margin-bottom:0.5rem" data-pt>RESERVAR MESA</h2>
+  <h2 class="section-title" style="text-align:center;margin-bottom:0.5rem" data-en>BOOK A TABLE</h2>
+  <p style="text-align:center;color:var(--gl-gray);font-size:0.88rem;margin-bottom:2.5rem" data-pt>Garante o teu lugar. Confirmaremos a reserva por WhatsApp.</p>
+  <p style="text-align:center;color:var(--gl-gray);font-size:0.88rem;margin-bottom:2.5rem" data-en>Secure your spot. We'll confirm your reservation by WhatsApp.</p>
+  <div class="form-card">
+    <form id="resForm" action="https://formspree.io/f/xkgwpqzr" method="POST">
+      <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="🪑 Nova Reserva — Gran Latino Taco Bar">
+      <div class="form-row">
+        <div class="form-group">
+          <label data-pt>Nome *</label>
+          <label data-en>Name *</label>
+          <input type="text" name="nome" placeholder="O teu nome" required>
+        </div>
+        <div class="form-group">
+          <label data-pt>Telefone / WhatsApp *</label>
+          <label data-en>Phone / WhatsApp *</label>
+          <input type="tel" name="telefone" placeholder="+351 9XX XXX XXX" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label data-pt>Data *</label>
+          <label data-en>Date *</label>
+          <input type="date" name="data" required>
+        </div>
+        <div class="form-group">
+          <label data-pt>Hora *</label>
+          <label data-en>Time *</label>
+          <select name="hora" required>
+            <option value="">--</option>
+            <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option>
+            <option>14:00</option><option>14:30</option><option>18:00</option><option>18:30</option>
+            <option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option>
+            <option>21:00</option><option>21:30</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label data-pt>Nº de Pessoas *</label>
+          <label data-en>Number of Guests *</label>
+          <select name="pessoas" required>
+            <option value="">--</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+            <option>5</option><option>6</option><option>7</option><option>8+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-pt>Notas</label>
+          <label data-en>Notes</label>
+          <input type="text" name="notas" placeholder="Alergias, aniversários...">
+        </div>
+      </div>
+      <button type="submit" class="btn-primary form-submit" data-pt>🪑 Confirmar Reserva</button>
+      <button type="submit" class="btn-primary form-submit" data-en>🪑 Confirm Reservation</button>
+    </form>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="contact-inner">
+  <div class="section-label" data-pt>Encontra-nos</div>
+  <div class="section-label" data-en>Find Us</div>
+  <h2 class="section-title" data-pt>CONTACTO</h2>
+  <h2 class="section-title" data-en>CONTACT</h2>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon">📍</div>
+      <div class="contact-label" data-pt>Morada</div>
+      <div class="contact-label" data-en>Address</div>
+      <div class="contact-value">R. Dr. João Vitorino Mealha 11<br>8500-598 Portimão</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📞</div>
+      <div class="contact-label" data-pt>Telefone / WhatsApp</div>
+      <div class="contact-label" data-en>Phone / WhatsApp</div>
+      <div class="contact-value"><a href="tel:+351963169878" style="color:var(--gl-lime)">+351 963 169 878</a></div>
+      <div class="social-row">
+        <a href="https://www.instagram.com/granlatino_tacobar" target="_blank" class="social-btn">📸 Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61565552376402" target="_blank" class="social-btn">👍 Facebook</a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">🕐</div>
+      <div class="contact-label" data-pt>Horário</div>
+      <div class="contact-label" data-en>Opening Hours</div>
+      <div class="contact-value" data-pt style="font-size:0.85rem;line-height:1.8">
+        Segunda a Sexta — 12h–22h30<br>
+        Sábado — 17h–22h30<br>
+        Domingo — Fechado
+      </div>
+      <div class="contact-value" data-en style="font-size:0.85rem;line-height:1.8">
+        Monday to Friday — 12–10:30pm<br>
+        Saturday — 5–10:30pm<br>
+        Sunday — Closed
+      </div>
+    </div>
+  </div>
+  <div class="map-embed">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3141.5!2d-8.5380!3d37.1360!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1b2951786228af%3A0xc9aa1f858965ca98!2sGran%20Latino%20Taco%20Bar!5e0!3m2!1spt!2spt!4v1680000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Gran Latino Taco Bar · Portimão · <span>granlatino.pt</span></p>
+  <p style="margin-top:0.5rem">Site por <a href="https://volvara.pt" style="color:var(--gl-lime);opacity:0.6">Volvara</a></p>
+</footer>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <span class="cart-title" data-pt>🛒 A Tua Encomenda</span>
+    <span class="cart-title" data-en>🛒 Your Order</span>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-empty" id="cartEmpty">
+    <span class="cart-empty-icon">🌮</span>
+    <span data-pt>O carrinho está vazio.<br>Adiciona itens do menu!</span>
+    <span data-en>Your cart is empty.<br>Add items from the menu!</span>
+  </div>
+  <div class="cart-items" id="cartItems" style="display:none"></div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total-row">
+      <span class="cart-total-label" data-pt>Total</span>
+      <span class="cart-total-label" data-en>Total</span>
+      <span class="cart-total-value" id="cartTotal">0,00€</span>
+    </div>
+    <button class="cart-checkout-btn" onclick="goToOrder()" data-pt>Ir para Encomenda →</button>
+    <button class="cart-checkout-btn" onclick="goToOrder()" data-en>Go to Order →</button>
+    <p class="cart-note" data-pt>Pagamento na entrega · MB Way · Dinheiro · Multibanco</p>
+    <p class="cart-note" data-en>Payment on delivery · MB Way · Cash · Card machine</p>
+  </div>
+</div>
+
+<!-- CART FAB -->
+<button class="cart-fab" id="cartFab" onclick="toggleCart()">
+  🛒 <span id="cartFabLabel" data-pt>Ver Encomenda</span><span id="cartFabLabelEn" data-en>View Order</span>
+  <span class="cart-fab-count" id="cartFabCount">0</span>
+</button>
+
+<!-- VARIANT MODAL -->
+<div class="variant-modal" id="variantModal">
+  <div class="variant-box">
+    <h4 id="variantTitle"></h4>
+    <div class="variant-opts" id="variantOpts"></div>
+    <div class="variant-actions">
+      <button class="variant-cancel" onclick="closeVariant()" data-pt>Cancelar</button>
+      <button class="variant-cancel" onclick="closeVariant()" data-en>Cancel</button>
+      <button class="variant-confirm" onclick="confirmVariant()" data-pt>Adicionar →</button>
+      <button class="variant-confirm" onclick="confirmVariant()" data-en>Add →</button>
+    </div>
+  </div>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/351963169878" target="_blank" class="wa-float" aria-label="WhatsApp">💬</a>
+
+<script>
+(function(){
+  /* ── CART STATE ── */
+  var cart = [];
+  var pendingVariant = null;
+  var selectedVariantIdx = null;
+
+  /* ── MENU DATA ── all orderable items with prices ── */
+  var MENU = {
+    // Entradas
+    'guacamole':          {name:'Guacamole', price:6.50},
+    'nachos-queijo':      {name:'Nachos — Queijo', price:6.00},
+    'nachos-carne':       {name:'Nachos — Carne', price:7.00},
+    'nachos-frango':      {name:'Nachos — Frango', price:7.00},
+    'quesadilla-queijo':  {name:'Quesadilla — Queijo', price:6.00},
+    'quesadilla-carne':   {name:'Quesadilla — Carne', price:7.00},
+    'quesadilla-frango':  {name:'Quesadilla — Frango', price:7.00},
+    'tostones':           {name:'Tostones del Caribe', price:7.50},
+    'yuca':               {name:'Yuca Frita', price:6.00},
+    'charutos':           {name:'Los Charutos', price:7.50},
+    'ceviche':            {name:'Ceviche Peruano', price:9.50},
+    'cesta-camaroes':     {name:'Cesta de Camarões', price:13.00},
+    'aguachile':          {name:'Aguachile de Camarão', price:9.50},
+    // Tacos
+    'tabua-duas':         {name:'Tábua para Duas Pessoas (8 tacos)', price:25.00},
+    'birria':             {name:'Tacos Birria', price:14.00},
+    'gran-frango':        {name:'Gran Latino — Frango', price:12.50},
+    'gran-veggie':        {name:'Gran Latino — Veggie', price:11.50},
+    'gran-carne':         {name:'Gran Latino — Carne', price:13.50},
+    'gran-camarao':       {name:'Gran Latino — Camarão', price:13.50},
+    'tinga':              {name:'Tacos Tinga de Pollo', price:12.50},
+    'mactacos':           {name:'MacTacos', price:12.50},
+    'crocantes':          {name:'Tacos Crocantes de Carnita', price:12.50},
+    'governador':         {name:'Tacos Governador', price:13.50},
+    'veggie-taco':        {name:'Tacos Veggie', price:9.50},
+    // Principais
+    'burrito-frango':     {name:'Burrito — Frango', price:13.50},
+    'burrito-veggie':     {name:'Burrito — Vegetariano', price:12.50},
+    'burrito-carne':      {name:'Burrito — Carne', price:14.00},
+    'burrito-camarao':    {name:'Burrito — Camarão', price:14.00},
+    'quesatinga':         {name:'Quesatinga', price:12.00},
+    'patacon':            {name:'Patacón de Camarão', price:13.50},
+    'quesabirria':        {name:'QuesaBirria', price:13.50},
+  };
+
+  function addToCart(id){
+    var item = MENU[id];
+    if(!item) return;
+    var existing = cart.find(function(c){ return c.id===id; });
+    if(existing){ existing.qty++; }
+    else { cart.push({id:id, name:item.name, price:item.price, qty:1}); }
+    renderCart();
+    flashBtn(id);
+  }
+
+  function flashBtn(id){
+    var btn = document.querySelector('[data-add="'+id+'"]');
+    if(!btn) return;
+    btn.textContent = '✓ Adicionado';
+    btn.style.background = 'var(--gl-lime)';
+    btn.style.color = 'var(--gl-black)';
+    setTimeout(function(){
+      btn.textContent = '+ Adicionar';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 1200);
+  }
+
+  function changeQty(id, delta){
+    var idx = cart.findIndex(function(c){ return c.id===id; });
+    if(idx<0) return;
+    cart[idx].qty += delta;
+    if(cart[idx].qty <= 0) cart.splice(idx,1);
+    renderCart();
+  }
+
+  function renderCart(){
+    var items = document.getElementById('cartItems');
+    var empty = document.getElementById('cartEmpty');
+    var footer = document.getElementById('cartFooter');
+    var fab = document.getElementById('cartFab');
+    var fabCount = document.getElementById('cartFabCount');
+
+    if(cart.length === 0){
+      empty.style.display = 'flex';
+      items.style.display = 'none';
+      footer.style.display = 'none';
+      fab.classList.remove('visible');
+      return;
+    }
+
+    empty.style.display = 'none';
+    items.style.display = 'flex';
+    footer.style.display = 'flex';
+    fab.classList.add('visible');
+
+    var total = 0;
+    var totalQty = 0;
+    var html = '';
+    cart.forEach(function(c){
+      total += c.price * c.qty;
+      totalQty += c.qty;
+      html += '<div class="cart-item">' +
+        '<div style="flex:1"><div class="cart-item-name">'+c.name+'</div>' +
+        '<div class="cart-item-price">'+(c.price*c.qty).toFixed(2).replace('.',',')+'€</div></div>'+
+        '<div class="qty-ctrl">'+
+        '<button class="qty-btn" onclick="changeQty(\''+c.id+'\',-1)">−</button>'+
+        '<span class="qty-num">'+c.qty+'</span>'+
+        '<button class="qty-btn" onclick="changeQty(\''+c.id+'\',+1)">+</button>'+
+        '</div></div>';
+    });
+    items.innerHTML = html;
+    document.getElementById('cartTotal').textContent = total.toFixed(2).replace('.',',')+'€';
+    fabCount.textContent = totalQty;
+  }
+
+  function toggleCart(){
+    var s = document.getElementById('cartSidebar');
+    var o = document.getElementById('cartOverlay');
+    s.classList.toggle('open');
+    o.classList.toggle('open');
+    document.body.style.overflow = s.classList.contains('open') ? 'hidden' : '';
+  }
+  window.toggleCart = toggleCart;
+
+  function goToOrder(){
+    // Fill the order form with cart contents
+    toggleCart();
+    var lines = cart.map(function(c){ return c.qty+'x '+c.name+' ('+c.price.toFixed(2).replace('.',',')+'€)'; });
+    var total = cart.reduce(function(s,c){ return s+c.price*c.qty; },0);
+    lines.push('');
+    lines.push('TOTAL: '+total.toFixed(2).replace('.',',')+'€');
+    var ta = document.querySelector('#orderForm [name="pedido"]');
+    if(ta) ta.value = lines.join('\n');
+    setTimeout(function(){
+      var el = document.getElementById('order');
+      if(el) el.scrollIntoView({behavior:'smooth'});
+    }, 300);
+  }
+  window.goToOrder = goToOrder;
+  window.addToCart = addToCart;
+  window.changeQty = changeQty;
+
+  /* ── VARIANT MODAL ── */
+  window.openVariant = function(title, variants){
+    pendingVariant = variants;
+    selectedVariantIdx = null;
+    document.getElementById('variantTitle').textContent = title;
+    var html = '';
+    variants.forEach(function(v,i){
+      html += '<div class="variant-opt" onclick="selectVariant('+i+')" id="vopt-'+i+'">'+
+        '<span class="variant-opt-name">'+v.label+'</span>'+
+        '<span class="variant-opt-price">'+v.price.toFixed(2).replace('.',',')+'€</span>'+
+        '</div>';
+    });
+    document.getElementById('variantOpts').innerHTML = html;
+    document.getElementById('variantModal').classList.add('open');
+  };
+  window.selectVariant = function(i){
+    selectedVariantIdx = i;
+    document.querySelectorAll('.variant-opt').forEach(function(el,j){
+      el.classList.toggle('selected', j===i);
+    });
+  };
+  window.closeVariant = function(){
+    document.getElementById('variantModal').classList.remove('open');
+    pendingVariant = null;
+    selectedVariantIdx = null;
+  };
+  window.confirmVariant = function(){
+    if(selectedVariantIdx===null || !pendingVariant) return;
+    var v = pendingVariant[selectedVariantIdx];
+    // direct add with specific id
+    var existing = cart.find(function(c){ return c.id===v.id; });
+    if(existing){ existing.qty++; }
+    else{ cart.push({id:v.id, name:v.label, price:v.price, qty:1}); }
+    renderCart();
+    closeVariant();
+  };
+
+  /* ── LANG TOGGLE ── */
+  var isEN = false;
+  function setLang(en){
+    isEN = en;
+    document.body.classList.toggle('en', en);
+    document.getElementById('langToggle').textContent = en ? 'PT' : 'EN';
+    var m = document.getElementById('langToggleMobile');
+    if(m) m.textContent = en ? 'PT' : 'EN';
+  }
+  document.getElementById('langToggle').addEventListener('click', function(){ setLang(!isEN); });
+  var mob = document.getElementById('langToggleMobile');
+  if(mob) mob.addEventListener('click', function(){ setLang(!isEN); });
+
+  /* ── MOBILE NAV ── */
+  var burger = document.getElementById('burger');
+  var navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', function(){
+    var open = navLinks.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      navLinks.classList.remove('open');
+      burger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+  function checkMobile(){
+    var m = document.getElementById('langToggleMobile');
+    if(window.innerWidth <= 680 && m) m.style.display='flex';
+    else if(m) m.style.display='none';
+  }
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+
+  /* ── MENU TABS ── */
+  window.switchTab = function(id, el){
+    document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.getElementById('tab-'+id).classList.add('active');
+    if(el) el.classList.add('active');
+  };
+
+  /* ── FORM SUBMIT ── */
+  ['orderForm','resForm'].forEach(function(fid){
+    var form = document.getElementById(fid);
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(form);
+      fetch(form.action, {method:'POST',body:data,headers:{'Accept':'application/json'}})
+        .then(function(r){
+          if(r.ok){
+            form.style.display='none';
+            var s = document.getElementById('successMsg');
+            if(s){ s.style.display='block'; cart=[]; renderCart(); }
+          }
+        }).catch(function(){});
+    });
+  });
+
+  /* ── NAV SCROLL ── */
+  window.addEventListener('scroll', function(){
+    document.getElementById('nav').style.background =
+      window.scrollY > 80 ? '#0D0D0D' : 'rgba(13,13,13,0.97)';
+  });
+
+  renderCart();
+})();
+</script>
+</body>
+</html>
