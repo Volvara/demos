@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gran Latino Taco Bar — Brand Identity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* GRAN LATINO BRAND SYSTEM */
+  --gl-black:      #0D0D0D;
+  --gl-jungle:     #1A3A1A;   /* verde escuro das folhas */
+  --gl-leaf:       #4A7C3F;   /* verde médio */
+  --gl-lime:       #7BC42A;   /* verde lima — "GRAN LATINO" no logo */
+  --gl-sunset:     #E8621A;   /* laranja pôr-do-sol do círculo */
+  --gl-gold:       #F5A623;   /* dourado do bico do tucano */
+  --gl-magenta:    #E0286E;   /* magenta — "TACO BAR" no logo */
+  --gl-hibiscus:   #D42B6C;   /* flor hibisco */
+  --gl-cream:      #FDF6E3;
+  --gl-slate:      #2A2A2A;
+
+  --font-display:  'Bebas Neue', sans-serif;
+  --font-heading:  'Playfair Display', serif;
+  --font-body:     'DM Sans', sans-serif;
+  --font-accent:   'Covered By Your Grace', cursive;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--gl-black);
+  color: var(--gl-cream);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13,13,13,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(123,196,42,0.2);
+  padding: 0 2rem;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+}
+nav a {
+  color: rgba(253,246,227,0.5);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 1rem 1.2rem;
+  white-space: nowrap;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+nav a:hover { color: var(--gl-lime); border-bottom-color: var(--gl-lime); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 2rem;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 40%, rgba(232,98,26,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 70%, rgba(123,196,42,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 30% at 20% 60%, rgba(224,40,110,0.08) 0%, transparent 50%);
+}
+.hero-logo-img {
+  width: 240px;
+  height: 240px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+  position: relative;
+  filter: drop-shadow(0 0 40px rgba(232,98,26,0.4));
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  color: var(--gl-lime);
+  position: relative;
+}
+.hero h1 span {
+  display: block;
+  font-size: 0.55em;
+  color: var(--gl-magenta);
+  letter-spacing: 0.2em;
+}
+.hero-sub {
+  margin-top: 1.5rem;
+  font-family: var(--font-accent);
+  font-size: 1.6rem;
+  color: var(--gl-gold);
+  opacity: 0.9;
+  position: relative;
+}
+.hero-tagline {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+.pill {
+  background: rgba(123,196,42,0.12);
+  border: 1px solid rgba(123,196,42,0.3);
+  color: var(--gl-lime);
+  padding: 0.4rem 1.2rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.pill.magenta {
+  background: rgba(224,40,110,0.12);
+  border-color: rgba(224,40,110,0.3);
+  color: var(--gl-magenta);
+}
+.pill.gold {
+  background: rgba(245,166,35,0.12);
+  border-color: rgba(245,166,35,0.3);
+  color: var(--gl-gold);
+}
+
+/* SECTIONS */
+section {
+  padding: 5rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gl-lime);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-bottom: 2.5rem;
+  color: var(--gl-cream);
+}
+h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  color: var(--gl-cream);
+}
+p { color: rgba(253,246,227,0.7); font-size: 0.95rem; line-height: 1.7; }
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(123,196,42,0.3), transparent);
+  margin: 0;
+}
+
+/* BRAND POSITIONING */
+.positioning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.pos-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+.pos-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; height: 2px;
+  background: var(--accent, var(--gl-lime));
+}
+.pos-card .icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.pos-card h3 { font-size: 1rem; font-family: var(--font-body); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+
+/* COLORS */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.swatch {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.swatch-color {
+  height: 90px;
+}
+.swatch-info {
+  background: rgba(255,255,255,0.04);
+  padding: 0.85rem;
+}
+.swatch-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gl-cream);
+  margin-bottom: 0.2rem;
+}
+.swatch-hex {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: rgba(253,246,227,0.4);
+}
+.swatch-role {
+  font-size: 0.68rem;
+  color: rgba(253,246,227,0.35);
+  margin-top: 0.2rem;
+}
+
+/* TYPOGRAPHY */
+.type-showcase {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.type-item {
+  border-left: 3px solid var(--gl-lime);
+  padding-left: 1.5rem;
+}
+.type-item.magenta { border-color: var(--gl-magenta); }
+.type-item.gold { border-color: var(--gl-gold); }
+
+.type-sample-bebas { font-family: var(--font-display); font-size: 3rem; letter-spacing: 0.05em; color: var(--gl-lime); line-height: 1; }
+.type-sample-playfair { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--gl-cream); font-style: italic; }
+.type-sample-dm { font-family: var(--font-body); font-size: 1.1rem; color: rgba(253,246,227,0.75); line-height: 1.7; }
+.type-sample-grace { font-family: var(--font-accent); font-size: 2rem; color: var(--gl-gold); }
+.type-meta { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(253,246,227,0.35); margin-top: 0.4rem; }
+
+/* VOICE */
+.voice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+.voice-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+.voice-trait {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: var(--gl-lime);
+  margin-bottom: 0.5rem;
+}
+.voice-yes { color: #7BC42A; font-size: 0.82rem; }
+.voice-no  { color: rgba(224,40,110,0.6); font-size: 0.82rem; }
+.voice-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(253,246,227,0.3); margin-bottom: 0.3rem; margin-top: 0.75rem; }
+
+/* PHOTO SLOTS */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.photo-slot {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.photo-slot img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.photo-slot .slot-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  padding: 1rem 0.75rem 0.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gl-lime);
+  font-weight: 600;
+}
+
+/* PAYMENTS GUIDE */
+.payment-section {
+  background: rgba(123,196,42,0.04);
+  border: 1px solid rgba(123,196,42,0.15);
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-top: 2.5rem;
+}
+.payment-section h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--gl-lime);
+  margin-bottom: 1.5rem;
+}
+.payment-option {
+  background: rgba(0,0,0,0.3);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 3px solid var(--gl-gold);
+}
+.payment-option.recommended { border-color: var(--gl-lime); }
+.badge {
+  display: inline-block;
+  background: var(--gl-lime);
+  color: var(--gl-black);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  margin-left: 0.75rem;
+  vertical-align: middle;
+}
+.badge.phase2 { background: var(--gl-gold); }
+.payment-pros { list-style: none; margin-top: 0.75rem; }
+.payment-pros li { font-size: 0.85rem; color: rgba(253,246,227,0.7); padding: 0.2rem 0; }
+.payment-pros li::before { content: '✓ '; color: var(--gl-lime); font-weight: 700; }
+.payment-pros li.con::before { content: '— '; color: rgba(253,246,227,0.3); }
+
+/* DELIVERY ZONES */
+.zones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.zone-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 1.25rem;
+  text-align: center;
+}
+.zone-name { font-family: var(--font-display); font-size: 1.4rem; color: var(--gl-lime); letter-spacing: 0.04em; }
+.zone-note { font-size: 0.75rem; color: rgba(253,246,227,0.4); margin-top: 0.3rem; }
+
+/* TECH SPEC */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+}
+.spec-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background: rgba(123,196,42,0.08);
+  color: var(--gl-lime);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.spec-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: rgba(253,246,227,0.75);
+  vertical-align: top;
+}
+.spec-table td:first-child { color: var(--gl-cream); font-weight: 500; width: 30%; }
+code {
+  background: rgba(123,196,42,0.1);
+  color: var(--gl-lime);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-family: 'DM Mono', monospace;
+}
+
+/* ORDER FLOW */
+.flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 2rem;
+  position: relative;
+}
+.flow::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  bottom: 40px;
+  width: 2px;
+  background: linear-gradient(var(--gl-lime), var(--gl-magenta));
+}
+.flow-step {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1.25rem 0;
+}
+.flow-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gl-lime);
+  color: var(--gl-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.flow-step:last-child .flow-num { background: var(--gl-magenta); color: white; }
+.flow-content h4 { font-size: 0.95rem; font-weight: 600; color: var(--gl-cream); margin-bottom: 0.25rem; }
+.flow-content p { font-size: 0.83rem; color: rgba(253,246,227,0.55); }
+
+/* NEXT STEPS */
+.next-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.step-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+.step-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(123,196,42,0.15);
+  border: 1px solid rgba(123,196,42,0.3);
+  color: var(--gl-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.step-text { font-size: 0.88rem; color: rgba(253,246,227,0.75); }
+.step-text strong { color: var(--gl-cream); }
+
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  color: rgba(253,246,227,0.2);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#brand">Brand</a>
+  <a href="#cores">Cores</a>
+  <a href="#tipografia">Tipografia</a>
+  <a href="#voz">Voz</a>
+  <a href="#fotos">Fotos</a>
+  <a href="#entregas">Entregas</a>
+  <a href="#pagamentos">Pagamentos</a>
+  <a href="#tecnico">Técnico</a>
+  <a href="#proximos">Roadmap</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <img src="assets/logo.jpg" alt="Gran Latino Taco Bar" class="hero-logo-img">
+  <h1>GRAN LATINO<span>TACO BAR</span></h1>
+  <p class="hero-sub">Brand Identity System · Abril 2026</p>
+  <div class="hero-tagline">
+    <span class="pill">Portimão, Algarve</span>
+    <span class="pill magenta">4.9 ★ TripAdvisor</span>
+    <span class="pill gold">Cozinha Latina Autêntica</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- BRAND POSITIONING -->
+<section id="brand">
+  <div class="section-label">01 — Posicionamento</div>
+  <h2>A MARCA</h2>
+  <div class="positioning-grid">
+    <div class="pos-card" style="--accent: var(--gl-lime)">
+      <div class="icon">🌿</div>
+      <h3>Propósito</h3>
+      <p>Trazer sabores autênticos da América Latina para o Algarve — sem filtros, sem fusão forçada. Comida com alma.</p>
+    </div>
+    <div class="pos-card" style="--accent: var(--gl-sunset)">
+      <div class="icon">🦜</div>
+      <h3>Personalidade</h3>
+      <p>Vibrante. Acolhedor. Irreverente mas profissional. O tucano do logo diz tudo — exótico, colorido, inconfundível.</p>
+    </div>
+    <div class="pos-card" style="--accent: var(--gl-magenta)">
+      <div class="icon">🌮</div>
+      <h3>Promessa</h3>
+      <p>Os melhores tacos do Algarve. Ingredientes frescos, receitas com raiz, experiência que faz voltar todas as semanas.</p>
+    </div>
+    <div class="pos-card" style="--accent: var(--gl-gold)">
+      <div class="icon">🎯</div>
+      <h3>Público</h3>
+      <p>Locais que querem algo diferente. Turistas que procuram autenticidade. Foodies que já conhecem México e Perú e sabem o que é bom.</p>
+    </div>
+    <div class="pos-card" style="--accent: var(--gl-leaf)">
+      <div class="icon">✦</div>
+      <h3>Diferenciação</h3>
+      <p>Único taco bar autêntico em Portimão. Não é "mexicano casual" — é cozinha latina a sério, com caldo para mergulhar e tudo.</p>
+    </div>
+    <div class="pos-card" style="--accent: var(--gl-hibiscus)">
+      <div class="icon">📍</div>
+      <h3>Tagline</h3>
+      <p style="font-family: var(--font-accent); font-size: 1.3rem; color: var(--gl-cream);">"Sabor sem fronteiras."</p>
+      <p style="margin-top:0.5rem">EN: <em>"No borders, all flavor."</em></p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CORES -->
+<section id="cores">
+  <div class="section-label">02 — Paleta de Cor</div>
+  <h2>CORES</h2>
+  <p>Extraídas diretamente do logo: o tucano, o pôr-do-sol laranja, a selva verde, as flores magenta. Sistema completo de 7 cores.</p>
+
+  <div class="color-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#7BC42A"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Lime</div>
+        <div class="swatch-hex">#7BC42A</div>
+        <div class="swatch-role">Primary · "GRAN LATINO"</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#E0286E"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Magenta</div>
+        <div class="swatch-hex">#E0286E</div>
+        <div class="swatch-role">Secondary · "TACO BAR"</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#E8621A"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Sunset</div>
+        <div class="swatch-hex">#E8621A</div>
+        <div class="swatch-role">Accent · Sol do Logo</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F5A623"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Gold</div>
+        <div class="swatch-hex">#F5A623</div>
+        <div class="swatch-role">Accent · Bico Tucano</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#1A3A1A"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Jungle</div>
+        <div class="swatch-hex">#1A3A1A</div>
+        <div class="swatch-role">Dark · Fundo Alternativo</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#0D0D0D"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Black</div>
+        <div class="swatch-hex">#0D0D0D</div>
+        <div class="swatch-role">Background · Principal</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#FDF6E3"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Cream</div>
+        <div class="swatch-hex">#FDF6E3</div>
+        <div class="swatch-role">Text · Corpo</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:2rem; background:rgba(255,255,255,0.03); border-radius:12px; padding:1.5rem; border:1px solid rgba(255,255,255,0.06)">
+    <div class="section-label" style="margin-bottom:0.5rem">CSS Variables (prontas a usar)</div>
+    <pre style="font-size:0.75rem; color:rgba(253,246,227,0.5); overflow-x:auto; line-height:1.8"><code style="background:none; color:inherit; padding:0">--gl-black:    #0D0D0D;
+--gl-jungle:   #1A3A1A;
+--gl-leaf:     #4A7C3F;
+--gl-lime:     #7BC42A;
+--gl-sunset:   #E8621A;
+--gl-gold:     #F5A623;
+--gl-magenta:  #E0286E;
+--gl-cream:    #FDF6E3;</code></pre>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TIPOGRAFIA -->
+<section id="tipografia">
+  <div class="section-label">03 — Tipografia</div>
+  <h2>FONTES</h2>
+
+  <div class="type-showcase">
+    <div class="type-item">
+      <div class="type-sample-bebas">BEBAS NEUE</div>
+      <div class="type-meta">Display · Headings Principais · Menus · CTAs</div>
+    </div>
+    <div class="type-item" style="border-color:var(--gl-gold)">
+      <div class="type-sample-playfair">Playfair Display</div>
+      <div class="type-meta">Serif · Headings secundários · Nomes de pratos · Secções</div>
+    </div>
+    <div class="type-item" style="border-color:var(--gl-sunset)">
+      <div class="type-sample-dm">DM Sans — corpo de texto, descrições, formulários, UI. Legível em qualquer tamanho, funciona bem em PT e EN.</div>
+      <div class="type-meta">Body · UI · Texto corrido</div>
+    </div>
+    <div class="type-item magenta">
+      <div class="type-sample-grace">Covered By Your Grace</div>
+      <div class="type-meta">Accent · Taglines · Destaques · Toque manuscrito latino</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VOZ -->
+<section id="voz">
+  <div class="section-label">04 — Voz da Marca</div>
+  <h2>COMO FALAR</h2>
+
+  <div class="voice-grid">
+    <div class="voice-card">
+      <div class="voice-trait">QUENTE</div>
+      <div class="voice-label">Sim</div>
+      <div class="voice-yes">"Encomenda agora e recebe em casa"<br>"Reserva a tua mesa"</div>
+      <div class="voice-label">Não</div>
+      <div class="voice-no">"Efetue a sua reserva através..."<br>Linguagem formal/bancária</div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-trait" style="color:var(--gl-magenta)">VIBRANTE</div>
+      <div class="voice-label">Sim</div>
+      <div class="voice-yes">"Birria com caldo 🌮🔥"<br>"Tacos de verdade."</div>
+      <div class="voice-label">Não</div>
+      <div class="voice-no">"Produtos de qualidade"<br>Linguagem genérica</div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-trait" style="color:var(--gl-gold)">DIRETO</div>
+      <div class="voice-label">Sim</div>
+      <div class="voice-yes">"Sem Uber Eats. Sem comissões.<br>Encomenda direta."</div>
+      <div class="voice-label">Não</div>
+      <div class="voice-no">Texto longo a explicar porquê.<br>Justificações defensivas.</div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-trait" style="color:var(--gl-leaf)">BILINGUE</div>
+      <div class="voice-label">PT principal</div>
+      <div class="voice-yes">Menu e texto em PT por defeito.<br>EN sempre disponível.</div>
+      <div class="voice-label">Atenção</div>
+      <div class="voice-no">Nunca misturar PT/EN na mesma frase.<br>Consistência por idioma.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOTOS -->
+<section id="fotos">
+  <div class="section-label">05 — Mapeamento de Fotos</div>
+  <h2>FOTOS DISPONÍVEIS</h2>
+  <p>8 fotos carregadas. Mapeamento por slot para o site.</p>
+
+  <div class="photo-grid">
+    <div class="photo-slot">
+      <img src="assets/tacos.png" alt="Tacos Birria">
+      <div class="slot-label">hero → Tacos Birria</div>
+    </div>
+    <div class="photo-slot">
+      <img src="assets/food2.jpg" alt="Tábua de tacos">
+      <div class="slot-label">about → Tábua variada</div>
+    </div>
+    <div class="photo-slot">
+      <img src="assets/food.jpg" alt="Mesa spread">
+      <div class="slot-label">galeria → Spread mesa</div>
+    </div>
+    <div class="photo-slot">
+      <img src="assets/food3.jpg" alt="Flautas">
+      <div class="slot-label">galeria → Flautas/Taquitos</div>
+    </div>
+    <div class="photo-slot">
+      <img src="assets/food4.jpg" alt="Tacos macios">
+      <div class="slot-label">galeria → Tacos macios</div>
+    </div>
+    <div class="photo-slot">
+      <img src="assets/ceviche.png" alt="Ceviche">
+      <div class="slot-label">galeria → Ceviche / Entradas</div>
+    </div>
+    <div class="photo-slot">
+      <img src="assets/food5.jpg" alt="Coronitas">
+      <div class="slot-label">galeria → Bebidas Coronita</div>
+    </div>
+    <div class="photo-slot">
+      <img src="assets/bar.png" alt="Bar interior">
+      <div class="slot-label">about → Interior do bar</div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.5rem; background:rgba(245,166,35,0.07); border:1px solid rgba(245,166,35,0.2); border-radius:10px; padding:1.25rem">
+    <p style="color:rgba(245,166,35,0.9); font-size:0.85rem">⚠️ <strong style="color:var(--gl-gold)">Notas:</strong> food5.jpg e food2.jpg têm ícone de áudio (são screenshots de vídeo IG) — usar com crop para esconder canto. Pedir ao cliente mais fotos de: espaço exterior / esplanada, cocktails/margaritas, close-up guacamole.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ENTREGAS -->
+<section id="entregas">
+  <div class="section-label">06 — Zona de Entregas</div>
+  <h2>DELIVERY</h2>
+
+  <div class="zones-grid">
+    <div class="zone-card">
+      <div class="zone-name">PORTIMÃO</div>
+      <div class="zone-note">Sede · Prioridade máxima</div>
+    </div>
+    <div class="zone-card">
+      <div class="zone-name">ALVOR</div>
+      <div class="zone-note">~8 min · turístico</div>
+    </div>
+    <div class="zone-card">
+      <div class="zone-name">PARCHAL</div>
+      <div class="zone-note">~5 min · residencial</div>
+    </div>
+    <div class="zone-card">
+      <div class="zone-name">FERRAGUDO</div>
+      <div class="zone-note">~10 min · turístico</div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.5rem; background:rgba(255,255,255,0.03); border-radius:10px; padding:1.5rem; border:1px solid rgba(255,255,255,0.06)">
+    <p style="font-size:0.85rem; color:rgba(253,246,227,0.6)">No formulário de encomenda: dropdown com as 4 zonas + campo de morada. Sem raio geométrico — validação manual pelo restaurante. Se estiver fora das zonas, o restaurante contacta antes de confirmar.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PAGAMENTOS -->
+<section id="pagamentos">
+  <div class="section-label">07 — Guia de Pagamentos</div>
+  <h2>OPÇÕES DE PAGAMENTO</h2>
+  <p>Documento para enviar ao cliente — comparação entre as duas fases.</p>
+
+  <div class="payment-section">
+    <h3>FASE 1 — PAGAMENTO NA ENTREGA <span class="badge">Arrancar Já</span></h3>
+
+    <div class="payment-option recommended">
+      <strong style="color:var(--gl-cream)">Como funciona:</strong>
+      <p style="margin-top:0.5rem; font-size:0.85rem">Cliente preenche formulário no site (nome, morada, zona, pedido, notas). O restaurante recebe o pedido por email/WhatsApp, confirma disponibilidade e entrega. Pagamento no ato — MB Way, dinheiro, ou multibanco portátil.</p>
+      <ul class="payment-pros">
+        <li>Zero custo de implementação</li>
+        <li>Zero taxas por transação</li>
+        <li>Pronto a usar no dia do lançamento</li>
+        <li>Sem conta bancária de negócios especial necessária</li>
+        <li>Funciona com Formspree (já usado nos outros demos Volvara)</li>
+        <li class="con">Sem confirmação automática de pagamento</li>
+        <li class="con">Risco de no-show (pequeno para entregas locais)</li>
+      </ul>
+    </div>
+
+    <h3 style="margin-top:2rem">FASE 2 — PAGAMENTO NO SITE <span class="badge phase2">Fase Seguinte</span></h3>
+
+    <div class="payment-option">
+      <strong style="color:var(--gl-cream)">Opção A · Stripe</strong>
+      <p style="margin-top:0.5rem; font-size:0.85rem">Plataforma internacional. Aceita cartão, MB Way (via SEPA), Apple/Google Pay. Taxa: ~1.4% + €0.25 por transação (cartão europeu). Requer conta Stripe verificada com NIF e IBAN.</p>
+      <ul class="payment-pros">
+        <li>Integração via Stripe.js — algumas horas de trabalho</li>
+        <li>Dashboard limpo para ver encomendas</li>
+        <li>Aceita turistas com cartão estrangeiro</li>
+        <li class="con">Taxa por transação</li>
+        <li class="con">Onboarding demora 1-3 dias (verificação identidade)</li>
+      </ul>
+    </div>
+
+    <div class="payment-option" style="margin-top:1rem">
+      <strong style="color:var(--gl-cream)">Opção B · Eupago / SIBS PayShop</strong>
+      <p style="margin-top:0.5rem; font-size:0.85rem">Gateway português. MB Way nativo, referências Multibanco. Taxa: ~1.5–2% por transação. Mais fácil de integrar para negócios portugueses, sem intermediários estrangeiros.</p>
+      <ul class="payment-pros">
+        <li>MB Way nativo — o que os portugueses preferem</li>
+        <li>Referências MB para quem não tem cartão</li>
+        <li>Suporte em português</li>
+        <li class="con">Menos familiar para turistas estrangeiros</li>
+        <li class="con">Documentação técnica menos polida que Stripe</li>
+      </ul>
+    </div>
+
+    <div style="margin-top:1.5rem; background:rgba(123,196,42,0.08); border-radius:8px; padding:1.25rem; border:1px solid rgba(123,196,42,0.15)">
+      <p style="font-size:0.85rem; color:rgba(123,196,42,0.9)">💡 <strong style="color:var(--gl-lime)">Recomendação Volvara:</strong> Começar com Fase 1 (pagamento na entrega). Após 2-3 meses de volume, adicionar Stripe para capturar turistas com cartão. Eupago para MB Way local. Os dois em paralelo no longo prazo.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FLUXO DE ENCOMENDA -->
+<section>
+  <div class="section-label">07b — Fluxo de Encomenda</div>
+  <h2>COMO FUNCIONA</h2>
+  <p>Fluxo completo Fase 1 — pagamento na entrega.</p>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <div class="flow-content">
+        <h4>Cliente abre o site</h4>
+        <p>Vê o menu com fotos, preços e descrições. Filtra por categoria (Tacos, Entradas, Bebidas).</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">2</div>
+      <div class="flow-content">
+        <h4>Seleciona zona de entrega</h4>
+        <p>Dropdown: Portimão / Alvor / Parchal / Ferragudo. Introduz morada.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">3</div>
+      <div class="flow-content">
+        <h4>Compõe o pedido</h4>
+        <p>Checkboxes ou campo de texto livre para especificar pratos, quantidades e notas especiais (sem glúten, sem coentros, etc.).</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">4</div>
+      <div class="flow-content">
+        <h4>Submete formulário</h4>
+        <p>Nome + telefone + hora desejada de entrega. Formspree envia email ao restaurante + confirmação automática ao cliente.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">5</div>
+      <div class="flow-content">
+        <h4>Restaurante confirma via WhatsApp</h4>
+        <p>Tempo estimado de entrega. Se houver item indisponível, contacta cliente antes.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:var(--gl-magenta)">6</div>
+      <div class="flow-content">
+        <h4>Entrega + pagamento</h4>
+        <p>MB Way, dinheiro ou multibanco portátil na porta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TÉCNICO -->
+<section id="tecnico">
+  <div class="section-label">08 — Especificação Técnica</div>
+  <h2>STACK DO SITE</h2>
+
+  <table class="spec-table">
+    <tr><th>Componente</th><th>Solução</th><th>Notas</th></tr>
+    <tr>
+      <td>Base</td>
+      <td>Vanilla HTML/CSS/JS · ficheiro único <code>index.html</code></td>
+      <td>Stack padrão Volvara</td>
+    </tr>
+    <tr>
+      <td>Formulário</td>
+      <td>Formspree + honeypot</td>
+      <td>Substituir ID placeholder antes de publicar</td>
+    </tr>
+    <tr>
+      <td>Idiomas</td>
+      <td>i18n JS system (PT/EN toggle)</td>
+      <td>Mesmo sistema usado na Soluna</td>
+    </tr>
+    <tr>
+      <td>Menu</td>
+      <td>Tabs por categoria + cards com foto</td>
+      <td>Tacos / Entradas / Burrito+Quesadilla / Bebidas</td>
+    </tr>
+    <tr>
+      <td>Encomendas</td>
+      <td>Formulário estruturado no próprio site</td>
+      <td>Sem integração de terceiros na Fase 1</td>
+    </tr>
+    <tr>
+      <td>Hosting</td>
+      <td>GitHub Pages + Cloudflare</td>
+      <td>Domínio a confirmar com cliente</td>
+    </tr>
+    <tr>
+      <td>SEO</td>
+      <td>Schema.org LocalBusiness + Restaurant JSON-LD</td>
+      <td>Com menu items marcados</td>
+    </tr>
+    <tr>
+      <td>Fotos</td>
+      <td>Pasta <code>assets/</code> externa</td>
+      <td>logo.jpg · tacos.png · bar.png · food.jpg · food2–5.jpg · ceviche.png</td>
+    </tr>
+    <tr>
+      <td>Favicon</td>
+      <td>SVG com "GL" em lime sobre fundo preto</td>
+      <td>A gerar antes de publicar</td>
+    </tr>
+    <tr>
+      <td>Carrinho</td>
+      <td>JS puro — sem dependências externas</td>
+      <td>Sidebar + modal variantes + preenche formulário automaticamente</td>
+    </tr>
+    <tr>
+      <td>Domínio</td>
+      <td><code>granlatino.pt</code> ou <code>granlatinotacobar.pt</code></td>
+      <td>Ambos disponíveis e gratuitos por 1 ano no amen.pt — <strong>decidir com equipa</strong></td>
+    </tr>
+  </table>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRÓXIMOS PASSOS -->
+<section id="proximos">
+  <div class="section-label">09 — Estado do Projeto</div>
+  <h2>ROADMAP</h2>
+
+  <p style="color:rgba(253,246,227,0.5);font-size:0.85rem;margin-bottom:2rem">Atualizado em Abril 2026. Itens ✅ concluídos · 🔴 bloqueantes antes de publicar · 🟡 a decidir com equipa · 🔵 fase seguinte.</p>
+
+  <!-- CONCLUÍDOS -->
+  <p style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gl-lime);font-weight:600;margin-bottom:1rem">✅ Concluído</p>
+  <div class="next-steps" style="margin-bottom:2.5rem">
+    <div class="step-item" style="opacity:0.6">
+      <div class="step-num" style="background:rgba(123,196,42,0.2);border-color:rgba(123,196,42,0.4)">✓</div>
+      <div class="step-text"><strong>Brand identity</strong> — paleta, tipografia, voz da marca extraídos do logo.</div>
+    </div>
+    <div class="step-item" style="opacity:0.6">
+      <div class="step-num" style="background:rgba(123,196,42,0.2);border-color:rgba(123,196,42,0.4)">✓</div>
+      <div class="step-text"><strong>Menu completo com preços</strong> — confirmado com fotos reais do menu físico.</div>
+    </div>
+    <div class="step-item" style="opacity:0.6">
+      <div class="step-num" style="background:rgba(123,196,42,0.2);border-color:rgba(123,196,42,0.4)">✓</div>
+      <div class="step-text"><strong>Demo construído</strong> — site completo PT/EN, menu com tabs, galeria, formulários de encomenda e reserva, carrinho interativo.</div>
+    </div>
+    <div class="step-item" style="opacity:0.6">
+      <div class="step-num" style="background:rgba(123,196,42,0.2);border-color:rgba(123,196,42,0.4)">✓</div>
+      <div class="step-text"><strong>Zonas de entrega definidas</strong> — Portimão, Alvor, Parchal, Ferragudo.</div>
+    </div>
+    <div class="step-item" style="opacity:0.6">
+      <div class="step-num" style="background:rgba(123,196,42,0.2);border-color:rgba(123,196,42,0.4)">✓</div>
+      <div class="step-text"><strong>WhatsApp de encomendas confirmado</strong> — +351 963 169 878.</div>
+    </div>
+    <div class="step-item" style="opacity:0.6">
+      <div class="step-num" style="background:rgba(123,196,42,0.2);border-color:rgba(123,196,42,0.4)">✓</div>
+      <div class="step-text"><strong>Modelo de pagamento Fase 1</strong> — pagamento na entrega (MB Way · Dinheiro · Multibanco portátil).</div>
+    </div>
+  </div>
+
+  <!-- BLOQUEANTES -->
+  <p style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#E0286E;font-weight:600;margin-bottom:1rem">🔴 Necessário antes de publicar</p>
+  <div class="next-steps" style="margin-bottom:2.5rem">
+    <div class="step-item" style="border-color:rgba(224,40,110,0.2)">
+      <div class="step-num" style="background:rgba(224,40,110,0.15);border-color:rgba(224,40,110,0.4);color:var(--gl-magenta)">1</div>
+      <div class="step-text"><strong>Escolher domínio</strong> — <code style="background:rgba(255,255,255,0.06);padding:0.1rem 0.4rem;border-radius:4px;font-size:0.8rem">granlatino.pt</code> ou <code style="background:rgba(255,255,255,0.06);padding:0.1rem 0.4rem;border-radius:4px;font-size:0.8rem">granlatinotacobar.pt</code> — ambos disponíveis e gratuitos por 1 ano no amen.pt. Decisão da equipa Gran Latino.</div>
+    </div>
+    <div class="step-item" style="border-color:rgba(224,40,110,0.2)">
+      <div class="step-num" style="background:rgba(224,40,110,0.15);border-color:rgba(224,40,110,0.4);color:var(--gl-magenta)">2</div>
+      <div class="step-text"><strong>Criar conta Formspree</strong> — registar em formspree.io e substituir o ID placeholder <code style="background:rgba(255,255,255,0.06);padding:0.1rem 0.4rem;border-radius:4px;font-size:0.8rem">xkgwpqzr</code> pelo ID real (aparece 2x no HTML). Recebe encomendas e reservas por email.</div>
+    </div>
+    <div class="step-item" style="border-color:rgba(224,40,110,0.2)">
+      <div class="step-num" style="background:rgba(224,40,110,0.15);border-color:rgba(224,40,110,0.4);color:var(--gl-magenta)">3</div>
+      <div class="step-text"><strong>Confirmar nomes dos ficheiros de imagem</strong> — a pasta <code style="background:rgba(255,255,255,0.06);padding:0.1rem 0.4rem;border-radius:4px;font-size:0.8rem">assets/</code> deve conter: <code style="background:rgba(255,255,255,0.06);padding:0.1rem 0.4rem;border-radius:4px;font-size:0.8rem">logo.jpg · tacos.png · bar.png · food.jpg · food2.jpg · food3.jpg · food4.jpg · food5.jpg · ceviche.png</code>. Se os nomes forem diferentes, informar a Volvara para atualizar o HTML.</div>
+    </div>
+  </div>
+
+  <!-- A DECIDIR -->
+  <p style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gl-gold);font-weight:600;margin-bottom:1rem">🟡 A decidir com equipa Gran Latino</p>
+  <div class="next-steps" style="margin-bottom:2.5rem">
+
+    <div class="step-item" style="border-color:rgba(245,166,35,0.2)">
+      <div class="step-num" style="background:rgba(245,166,35,0.15);border-color:rgba(245,166,35,0.4);color:var(--gl-gold)">A</div>
+      <div class="step-text">
+        <strong>Canal de encomendas — WhatsApp direto vs Email</strong><br>
+        <span style="font-size:0.82rem;color:rgba(253,246,227,0.55);line-height:1.7;display:block;margin-top:0.4rem">
+          <strong style="color:var(--gl-cream)">Opção atual (Email via Formspree):</strong> cliente submete formulário → email chega à caixa do restaurante → restaurante confirma por WhatsApp.<br>
+          <strong style="color:var(--gl-cream)">Opção WhatsApp direto:</strong> ao submeter, abre WhatsApp com a mensagem já formatada (nome, morada, pedido, total). Notificação imediata, resposta direta. Sem conta Formspree necessária.<br>
+          <strong style="color:var(--gl-lime)">Recomendação Volvara:</strong> WhatsApp direto para começar — mais simples, mais rápido, zero configuração.
+        </span>
+      </div>
+    </div>
+
+    <div class="step-item" style="border-color:rgba(245,166,35,0.2)">
+      <div class="step-num" style="background:rgba(245,166,35,0.15);border-color:rgba(245,166,35,0.4);color:var(--gl-gold)">B</div>
+      <div class="step-text">
+        <strong>Bloqueio de encomendas fora do horário</strong><br>
+        <span style="font-size:0.82rem;color:rgba(253,246,227,0.55);line-height:1.7;display:block;margin-top:0.4rem">
+          O formulário de encomenda pode verificar automaticamente a hora atual e bloquear submissões fora do horário de funcionamento (Seg–Sex 12h–22h30 · Sáb 17h–22h30). Mostra mensagem com próxima abertura.<br>
+          <strong style="color:var(--gl-lime)">Recomendação Volvara:</strong> Implementar — evita pedidos impossíveis de cumprir e expectativas frustradas.
+        </span>
+      </div>
+    </div>
+
+    <div class="step-item" style="border-color:rgba(245,166,35,0.2)">
+      <div class="step-num" style="background:rgba(245,166,35,0.15);border-color:rgba(245,166,35,0.4);color:var(--gl-gold)">C</div>
+      <div class="step-text">
+        <strong>Fecho temporário / dias especiais</strong><br>
+        <span style="font-size:0.82rem;color:rgba(253,246,227,0.55);line-height:1.7;display:block;margin-top:0.4rem">
+          Para férias, eventos privados ou imprevistos — um ficheiro simples <code style="background:rgba(255,255,255,0.06);padding:0.1rem 0.4rem;border-radius:4px">status.json</code> na pasta do site que a equipa pode atualizar. O site lê esse ficheiro e mostra "Hoje estamos fechados" sem precisar de tocar no código.<br>
+          <strong style="color:var(--gl-lime)">Recomendação Volvara:</strong> Implementar junto com o bloqueio de horário — 1 hora de trabalho adicional.
+        </span>
+      </div>
+    </div>
+
+    <div class="step-item" style="border-color:rgba(245,166,35,0.2)">
+      <div class="step-num" style="background:rgba(245,166,35,0.15);border-color:rgba(245,166,35,0.4);color:var(--gl-gold)">D</div>
+      <div class="step-text">
+        <strong>Fotos adicionais</strong><br>
+        <span style="font-size:0.82rem;color:rgba(253,246,227,0.55);line-height:1.7;display:block;margin-top:0.4rem">
+          As fotos actuais cobrem bem o menu. Para enriquecer o site seria útil: esplanada/exterior do espaço, cocktails/margaritas em vidro, close-up do guacamole preparado na mesa. Não é bloqueante — o site funciona bem com as actuais.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE SEGUINTE -->
+  <p style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(123,196,42,0.5);font-weight:600;margin-bottom:1rem">🔵 Fase seguinte (após lançamento)</p>
+  <div class="next-steps">
+    <div class="step-item" style="opacity:0.7;border-color:rgba(255,255,255,0.05)">
+      <div class="step-num" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.1);color:rgba(253,246,227,0.4)">F1</div>
+      <div class="step-text">
+        <strong>Pagamento online no site</strong><br>
+        <span style="font-size:0.82rem;color:rgba(253,246,227,0.4);line-height:1.7;display:block;margin-top:0.3rem">Stripe (cartões internacionais, turistas) + Eupago/SIBS (MB Way nativo). Recomendado após 2–3 meses de volume e validação do fluxo de entrega.</span>
+      </div>
+    </div>
+    <div class="step-item" style="opacity:0.7;border-color:rgba(255,255,255,0.05)">
+      <div class="step-num" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.1);color:rgba(253,246,227,0.4)">F2</div>
+      <div class="step-text">
+        <strong>Versão em francês</strong><br>
+        <span style="font-size:0.82rem;color:rgba(253,246,227,0.4);line-height:1.7;display:block;margin-top:0.3rem">O Algarve recebe muitos turistas franceses. Adicionar FR ao toggle PT/EN existente é simples — o sistema i18n já suporta múltiplos idiomas.</span>
+      </div>
+    </div>
+    <div class="step-item" style="opacity:0.7;border-color:rgba(255,255,255,0.05)">
+      <div class="step-num" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.1);color:rgba(253,246,227,0.4)">F3</div>
+      <div class="step-text">
+        <strong>Google Business Profile</strong><br>
+        <span style="font-size:0.82rem;color:rgba(253,246,227,0.4);line-height:1.7;display:block;margin-top:0.3rem">Criar/reclamar perfil do Gran Latino no Google Maps com link para o site, horários, fotos. Impacto direto em pesquisas "restaurante mexicano portimão".</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Preparado por Volvara · go@volvara.pt · volvara.pt · Abril 2026
+</footer>
+
+</body>
+</html>
