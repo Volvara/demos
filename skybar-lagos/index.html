@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sky Bar Lagos — Not only a drink, but a moment.</title>
+<meta name="description" content="Sky Bar Lagos — rooftop bar with pool in the heart of Lagos, Algarve. Crafted cocktails, stunning views, unforgettable nights.">
+<meta property="og:title" content="Sky Bar Lagos">
+<meta property="og:description" content="Not only a drink, but a moment. Rooftop bar &amp; pool in Lagos, Algarve.">
+<meta property="og:image" content="assets/droneshot.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sky Bar Lagos">
+<meta name="twitter:description" content="Not only a drink, but a moment.">
+<meta name="twitter:image" content="assets/droneshot.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iIzA4MDgwOCIvPjx0ZXh0IHg9IjUwIiB5PSI0MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNGOEY2RjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNreTwvdGV4dD48dGV4dCB4PSI1MCIgeT0iNzIiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjRjVDNTE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5CYXI8L3RleHQ+PC9zdmc+">
+<link rel="apple-touch-icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;1,300&family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BarOrPub","name":"Sky Bar Lagos","description":"Rooftop bar with pool in Lagos, Algarve.","slogan":"Not only a drink, but a moment.","address":{"@type":"PostalAddress","streetAddress":"Largo Marquês de Pombal 1","postalCode":"8600-740","addressLocality":"Lagos","addressCountry":"PT"},"sameAs":["https://www.instagram.com/skybar.lagos"]}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#080808;
+  --yellow:#F5C518;
+  --white:#F8F6F0;
+  --grey:#888;
+  --max-w:1200px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.9rem 2.5rem;
+  transition:background .4s,backdrop-filter .4s;
+}
+nav.scrolled{
+  background:rgba(8,8,8,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(245,197,24,.12);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:.65rem;
+  text-decoration:none;
+  flex-shrink:0;
+}
+.nav-logo img{
+  width:44px;height:44px;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+}
+.nav-logo-text{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.55rem;letter-spacing:.05em;line-height:1;
+}
+.sky{color:var(--yellow)}
+.bar-word{color:var(--white)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  color:rgba(248,246,240,.7);text-decoration:none;
+  font-size:.82rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--yellow)}
+.nav-cta{
+  background:var(--yellow);color:var(--black);
+  padding:.6rem 1.3rem;min-height:38px;
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+  border-radius:2px;transition:opacity .2s,transform .15s;
+  white-space:nowrap;
+}
+.nav-cta:hover{opacity:.85;transform:translateY(-1px)}
+
+/* hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:26px;height:2px;background:var(--white);transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* mobile menu */
+.mobile-menu{
+  display:none;position:fixed;inset:0;z-index:99;
+  background:rgba(8,8,8,.97);
+  flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  color:var(--white);text-decoration:none;
+  font-family:'Bebas Neue',sans-serif;font-size:2.6rem;letter-spacing:.1em;
+  transition:color .2s;
+}
+.mobile-menu a:hover,.mobile-menu a:active{color:var(--yellow)}
+.mobile-cta{
+  background:var(--yellow)!important;color:var(--black)!important;
+  padding:.75rem 2.8rem!important;font-size:1.1rem!important;
+  border-radius:2px;
+}
+
+/* ── HERO ── */
+.hero{
+  position:relative;height:100vh;min-height:620px;
+  display:flex;align-items:flex-end;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('assets/droneshot.png');
+  background-size:cover;background-position:center 30%;
+  animation:heroZoom 14s ease-out forwards;
+}
+@keyframes heroZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(8,8,8,.93) 0%,rgba(8,8,8,.3) 50%,rgba(8,8,8,.05) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  padding:0 2.5rem 5.5rem;max-width:700px;
+  opacity:0;transform:translateY(32px);
+  animation:fadeUp .9s .3s forwards;
+}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+.hero-eyebrow{
+  display:inline-block;
+  font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--yellow);
+  margin-bottom:1rem;
+  border-left:3px solid var(--yellow);padding-left:.75rem;
+  text-shadow:0 1px 8px rgba(8,8,8,.8);
+}
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4.5rem,14vw,10rem);line-height:.88;letter-spacing:.02em;
+}
+.hero-tagline{
+  margin-top:1.2rem;
+  font-size:clamp(.95rem,2.2vw,1.3rem);font-weight:300;
+  color:rgba(248,246,240,.75);font-style:italic;
+}
+.hero-actions{margin-top:2.2rem;display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{
+  background:var(--yellow);color:var(--black);
+  padding:.8rem 2.2rem;
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;
+  letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+  border-radius:2px;border:none;cursor:pointer;
+  transition:opacity .2s,transform .15s;display:inline-block;
+}
+.btn-primary:hover{opacity:.85;transform:translateY(-2px)}
+.btn-ghost{
+  background:transparent;color:var(--white);
+  padding:.8rem 2.2rem;
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;
+  letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+  border-radius:2px;border:1.5px solid rgba(248,246,240,.35);cursor:pointer;
+  transition:border-color .2s,color .2s;display:inline-block;
+}
+.btn-ghost:hover{border-color:var(--yellow);color:var(--yellow)}
+.hero-scroll{
+  position:absolute;bottom:2rem;right:2.5rem;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  opacity:0;animation:fadeUp .9s 1.4s forwards;
+}
+.hero-scroll span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+.scroll-line{
+  width:1px;height:48px;
+  background:linear-gradient(to bottom,var(--yellow),transparent);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* ── MARQUEE ── */
+.marquee-bar{background:var(--yellow);padding:.6rem 0;overflow:hidden}
+.marquee-track{display:flex;white-space:nowrap;animation:marquee 28s linear infinite}
+.marquee-track span{
+  font-family:'Bebas Neue',sans-serif;font-size:1rem;
+  letter-spacing:.15em;color:var(--black);padding:0 2rem;
+}
+.marquee-track .dot{color:rgba(8,8,8,.3)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTIONS ── */
+section{padding:7rem 2.5rem}
+.section-eyebrow{
+  font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--yellow);margin-bottom:.75rem;
+}
+.section-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.4rem,6vw,4.5rem);line-height:.95;letter-spacing:.02em;color:var(--white);
+}
+
+/* ── ABOUT ── */
+.about-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;
+  align-items:center;max-width:var(--max-w);margin:0 auto;
+}
+.about-text p{margin-top:1.4rem;line-height:1.85;color:rgba(248,246,240,.68);font-size:1.05rem}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+.stat{border-left:2px solid var(--yellow);padding-left:1rem}
+.stat-number{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--yellow);line-height:1}
+.stat-label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--grey);margin-top:.2rem}
+.about-img-wrap{position:relative}
+.about-img-wrap img{
+  width:100%;height:580px;
+  object-fit:cover;object-position:center 15%;
+  border-radius:2px;display:block;
+}
+.about-badge{
+  position:absolute;bottom:-1.5rem;left:-1.5rem;
+  background:var(--yellow);color:var(--black);
+  padding:1.1rem 1.4rem;
+  font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.04em;line-height:1.35;
+  border-radius:2px;
+}
+
+/* ── GALLERY ── */
+.gallery-section{padding-top:0;padding-bottom:4rem}
+.gallery-header{max-width:var(--max-w);margin:0 auto 3rem}
+.gallery-grid{
+  max-width:var(--max-w);margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:280px 280px;
+  gap:8px;
+}
+.g-item{overflow:hidden;border-radius:2px;cursor:pointer}
+.g-item img{width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform .55s ease,filter .55s}
+.g3 img{object-position:center 40%}
+.g-item:hover img{transform:scale(1.06);filter:brightness(.82)}
+.g1{grid-column:span 7;grid-row:span 2}
+.g1 img{height:100%}
+.g2{grid-column:span 5}
+.g3{grid-column:span 5}
+
+/* ── EXPERIENCE ── */
+.exp-section{background:#0d0d0d}
+.exp-inner{max-width:var(--max-w);margin:0 auto}
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:4rem}
+.exp-item{position:relative;overflow:hidden;aspect-ratio:3/4}
+.exp-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.exp-item:hover img{transform:scale(1.05)}
+.exp-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(8,8,8,.9) 0%,transparent 55%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem;
+}
+.exp-tag{
+  font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--yellow);margin-bottom:.4rem;
+}
+.exp-title{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;line-height:1;color:var(--white)}
+
+/* ── HOURS ── */
+.hours-inner{
+  max-width:1000px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;
+}
+.hours-visual img{
+  width:100%;height:440px;
+  object-fit:cover;object-position:center 20%;
+  border-radius:2px;filter:brightness(.85);
+}
+.hours-table{margin-top:2.5rem}
+.hours-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.9rem 0;border-bottom:1px solid rgba(248,246,240,.08);
+}
+.hours-row:last-child{border-bottom:none}
+.hours-day{font-size:.88rem;letter-spacing:.05em;color:rgba(248,246,240,.55)}
+.hours-time{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:600;color:var(--white)}
+.hours-note{
+  margin-top:1.5rem;padding:.9rem 1.1rem;
+  border-left:2px solid var(--yellow);background:rgba(245,197,24,.05);
+  font-size:.83rem;color:rgba(248,246,240,.55);line-height:1.75;
+}
+.hours-note a{color:var(--yellow);text-decoration:none;border-bottom:1px solid rgba(245,197,24,.4)}
+
+/* ── INSTAGRAM ── */
+.ig-section{padding-top:2rem;padding-bottom:7rem}
+.ig-header{
+  max-width:var(--max-w);margin:0 auto 2.5rem;
+  display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.ig-handle{
+  font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.08em;
+  color:var(--grey);text-decoration:none;transition:color .2s;
+}
+.ig-handle:hover{color:var(--yellow)}
+.ig-grid{
+  max-width:var(--max-w);margin:0 auto;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:5px;
+}
+.ig-item{aspect-ratio:1;overflow:hidden;border-radius:2px}
+.ig-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .5s}
+.ig-item:hover img{transform:scale(1.08);filter:brightness(.72)}
+
+/* ── LOCATION ── */
+.location-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:center;
+}
+.location-address{
+  margin-top:2rem;font-size:1.05rem;line-height:2.1;
+  color:rgba(248,246,240,.65);
+}
+.location-address strong{color:var(--white);font-weight:600}
+.social-link{
+  display:inline-flex;align-items:center;gap:.5rem;
+  color:rgba(248,246,240,.55);text-decoration:none;
+  font-size:.83rem;letter-spacing:.08em;text-transform:uppercase;
+  margin-top:2rem;transition:color .2s;
+}
+.social-link:hover{color:var(--yellow)}
+.map-frame{
+  width:100%;height:380px;border-radius:2px;
+  overflow:hidden;border:1px solid rgba(248,246,240,.07);
+}
+.map-frame iframe{
+  width:100%;height:100%;border:none;
+  filter:grayscale(1) invert(1) brightness(.65) contrast(1.1);
+}
+
+/* ── FOOTER ── */
+footer{
+  padding:2.5rem 2.5rem;
+  border-top:1px solid rgba(248,246,240,.07);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1.5rem;
+}
+.footer-logo{
+  display:flex;align-items:center;gap:.6rem;
+  text-decoration:none;
+}
+.footer-logo img{
+  width:46px;height:46px;
+  border-radius:50%;object-fit:cover;
+}
+.footer-logo-text{
+  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.05em;
+}
+.footer-copy{font-size:.73rem;color:var(--grey);letter-spacing:.05em}
+.footer-tagline{font-style:italic;color:rgba(248,246,240,.35);font-size:.78rem}
+
+
+/* ── FOCUS STATES ── */
+a:focus-visible,button:focus-visible{
+  outline:2px solid var(--yellow);outline-offset:3px;border-radius:2px;
+}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+
+/* Tablet: 769px–1024px */
+@media(max-width:1024px){
+  nav{padding:.9rem 1.8rem}
+  .nav-links{gap:1.4rem}
+  .nav-links a{font-size:.78rem}
+  .about-inner{gap:3rem}
+  .hours-inner{gap:3rem}
+  .location-inner{gap:3rem}
+  .exp-grid{gap:2px}
+}
+
+/* Mobile: ≤768px */
+@media(max-width:768px){
+  .nav-logo-text{display:none}
+  .nav-logo img{width:38px;height:38px}
+  section{padding:5rem 1.4rem}
+  nav{padding:.9rem 1.4rem}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+
+  /* Hero */
+  .hero{min-height:100svh}
+  .hero-bg{background-position:center 65%}
+  .hero-content{padding:0 1.4rem 5rem}
+  .hero-scroll{display:none}
+
+  /* About */
+  .about-inner{grid-template-columns:1fr;gap:2.5rem}
+  .about-img-wrap img{height:320px;object-position:center 25%}
+  .about-badge{left:0;bottom:-1rem;font-size:1rem;padding:.9rem 1.1rem}
+  .about-stats{margin-top:4rem}  /* clear badge overlap */
+
+  /* Gallery */
+  .gallery-section{padding-bottom:2.5rem}
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:190px 190px;
+    gap:5px;
+  }
+  .g1{grid-column:span 2;grid-row:span 1}
+  .g2,.g3{grid-column:span 1}
+
+  /* Experience */
+  .exp-grid{grid-template-columns:1fr;gap:3px}
+  .exp-item{aspect-ratio:4/3}
+
+  /* Hours */
+  .hours-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hours-visual{display:none}
+
+  /* IG */
+  .ig-section{padding-bottom:5rem}
+  .ig-grid{grid-template-columns:repeat(3,1fr)}
+  .ig-item:nth-child(n+4){display:none}
+
+  /* Location */
+  .location-inner{grid-template-columns:1fr;gap:2.5rem}
+  .map-frame{height:260px}
+
+  /* Footer */
+  footer{flex-direction:column;align-items:flex-start;gap:.9rem;padding:2rem 1.4rem}
+  .footer-tagline{display:none}
+}
+
+/* Small phones: ≤400px */
+@media(max-width:400px){
+  .hero-title{font-size:clamp(4rem,20vw,5.5rem)}
+  .hero-actions{flex-direction:column}
+  .btn-primary,.btn-ghost{text-align:center;width:100%}
+  .gallery-grid{grid-template-rows:150px 150px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#">
+    <img src="assets/logo.jpg" alt="Sky Bar Lagos">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#hours">Hours</a></li>
+    <li><a href="#location">Find Us</a></li>
+  </ul>
+  <a class="nav-cta" href="https://www.instagram.com/skybar.lagos" target="_blank" rel="noopener">Follow Us</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#gallery" class="mobile-link">Gallery</a>
+  <a href="#experience" class="mobile-link">Experience</a>
+  <a href="#hours" class="mobile-link">Hours</a>
+  <a href="#location" class="mobile-link">Find Us</a>
+  <a href="https://www.instagram.com/skybar.lagos" target="_blank" rel="noopener" class="mobile-cta">Instagram</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-bg" role="img" aria-label="Aerial night view of Sky Bar Lagos rooftop with illuminated pool"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Rooftop Bar &amp; Pool · Lagos, Algarve</div>
+    <h1 class="hero-title"><span class="sky">Sky</span><br><span class="bar-word">Bar</span></h1>
+    <p class="hero-tagline">"Not only a drink, but a moment."</p>
+    <div class="hero-actions">
+      <a href="#gallery" class="btn-primary">Explore</a>
+      <a href="#location" class="btn-ghost">Find Us</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Rooftop Pool</span><span class="dot">·</span><span>Craft Cocktails</span><span class="dot">·</span><span>Sunset Views</span><span class="dot">·</span><span>Lagos, Algarve</span><span class="dot">·</span><span>Open Late</span><span class="dot">·</span><span>@skybar.lagos</span><span class="dot">·</span><span>Rooftop Pool</span><span class="dot">·</span><span>Craft Cocktails</span><span class="dot">·</span><span>Sunset Views</span><span class="dot">·</span><span>Lagos, Algarve</span><span class="dot">·</span><span>Open Late</span><span class="dot">·</span><span>@skybar.lagos</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text reveal">
+      <p class="section-eyebrow">Above the City</p>
+      <h2 class="section-title">More Than a Bar.<br>A Place to Feel.</h2>
+      <p>Perched above the mosaic streets of Lagos, Sky Bar is where the Algarve sky becomes your ceiling. A rooftop pool, handcrafted cocktails, and a view that stretches to the Atlantic.</p>
+      <p>Whether you catch the last light of a summer sunset or lose track of time under a sky full of stars — every moment here is worth remembering.</p>
+      <div class="about-stats">
+        <div class="stat reveal"><div class="stat-number">4K+</div><div class="stat-label">Followers</div></div>
+        <div class="stat reveal"><div class="stat-number">∞</div><div class="stat-label">Moments</div></div>
+        <div class="stat reveal"><div class="stat-number">1</div><div class="stat-label">Rooftop Pool</div></div>
+        <div class="stat reveal"><div class="stat-number">Lagos</div><div class="stat-label">Algarve</div></div>
+      </div>
+    </div>
+    <div class="about-img-wrap reveal">
+      <img src="assets/poolview.png" alt="Sky Bar staff member overlooking the rooftop pool at golden hour" loading="lazy">
+      <div class="about-badge">Not only a drink,<br>but a moment.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery-section">
+  <div class="gallery-header reveal">
+    <p class="section-eyebrow">The Space</p>
+    <h2 class="section-title">See It Before You Feel It</h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="g-item g1 reveal"><img src="assets/droneshot3.png" alt="Aerial view of Sky Bar Lagos rooftop at night" loading="lazy"></div>
+    <div class="g-item g2 reveal"><img src="assets/drink.png" alt="Friends toasting cocktails at sunset on the rooftop" loading="lazy"></div>
+    <div class="g-item g3 reveal"><img src="assets/bar3.jpg" alt="Sky Bar interior lounge with pool and Lagos rooftop view" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="exp-section">
+  <div class="exp-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">What Awaits</p>
+      <h2 class="section-title">Three Ways to Experience Sky Bar</h2>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-item reveal">
+        <img src="assets/pool.jpg" alt="Sky Bar rooftop pool at dusk with moonrise" loading="lazy">
+        <div class="exp-overlay">
+          <div class="exp-tag">Pool</div>
+          <div class="exp-title">Swim Above Lagos</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <img src="assets/drink2.png" alt="Craft cocktail served by the pool at night" loading="lazy">
+        <div class="exp-overlay">
+          <div class="exp-tag">Cocktails</div>
+          <div class="exp-title">Drinks With Character</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <img src="assets/droneshot.png" alt="Sky Bar rooftop party with crowd and illuminated pool" loading="lazy">
+        <div class="exp-overlay">
+          <div class="exp-tag">Nightlife</div>
+          <div class="exp-title">The Night Is Yours</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section id="hours">
+  <div class="hours-inner">
+    <div class="hours-visual reveal">
+      <img src="assets/barman2.png" alt="Sky Bar barman shaking cocktails at the illuminated bar" loading="lazy">
+    </div>
+    <div class="reveal">
+      <p class="section-eyebrow">When to Visit</p>
+      <h2 class="section-title">Open Daily</h2>
+      <div class="hours-table">
+        <div class="hours-row">
+          <span class="hours-day">Monday – Thursday</span>
+          <span class="hours-time">14:00 – 01:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Friday – Saturday</span>
+          <span class="hours-time">14:00 – 03:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Sunday</span>
+          <span class="hours-time">14:00 – 01:00</span>
+        </div>
+      </div>
+      <div class="hours-note">
+        Pool access during all opening hours. Last entry 1 hour before close.<br>
+        Hours may vary seasonally — check <a href="https://www.instagram.com/skybar.lagos" target="_blank" rel="noopener">@skybar.lagos</a> for updates.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM STRIP -->
+<section class="ig-section">
+  <div class="ig-header reveal">
+    <div>
+      <p class="section-eyebrow">Follow the Vibe</p>
+      <h2 class="section-title">@skybar.lagos</h2>
+    </div>
+    <a href="https://www.instagram.com/skybar.lagos" target="_blank" rel="noopener" class="ig-handle">View on Instagram ↗</a>
+  </div>
+  <div class="ig-grid">
+    <div class="ig-item reveal"><img src="assets/drink.png" alt="Sky Bar cocktail moment" loading="lazy"></div>
+    <div class="ig-item reveal"><img src="assets/droneshot2.png" alt="Sky Bar aerial view of Lagos" loading="lazy"></div>
+    <div class="ig-item reveal"><img src="assets/barman2.png" alt="Sky Bar barman at work" loading="lazy"></div>
+    <div class="ig-item reveal"><img src="assets/pool.jpg" alt="Sky Bar rooftop pool" loading="lazy"></div>
+    <div class="ig-item reveal"><img src="assets/drink2.png" alt="Sky Bar night cocktail" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location" style="padding-top:2rem">
+  <div class="location-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Find Us</p>
+      <h2 class="section-title">Heart of Lagos</h2>
+      <address class="location-address" style="font-style:normal">
+        <strong>Sky Bar Lagos</strong><br>
+        Largo Marquês de Pombal 1<br>
+        8600-740 Lagos<br>
+        Algarve, Portugal
+      </address>
+      <a href="https://www.instagram.com/skybar.lagos" target="_blank" rel="noopener" class="social-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        @skybar.lagos
+      </a>
+    </div>
+    <div class="map-frame reveal">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.4!2d-8.67369!3d37.10219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1b27e9c3b4b5b5%3A0xa12b3c4d5e6f78!2sLargo+Marqu%C3%AAs+de+Pombal%2C+Lagos!5e0!3m2!1sen!2spt!4v1680000000001"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Sky Bar Lagos — Largo Marquês de Pombal 1, Lagos">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="footer-logo" href="#">
+    <img src="assets/logo.jpg" alt="Sky Bar Lagos">
+  </a>
+  <span class="footer-tagline">"Not only a drink, but a moment."</span>
+  <span class="footer-copy">© 2025 Sky Bar Lagos · Lagos, Algarve</span>
+</footer>
+
+<script>
+(function(){
+  /* Nav scroll */
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, {passive: true});
+
+  /* Hamburger */
+  var ham  = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+  function closeMenu(){
+    ham.classList.remove('open');
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+    ham.setAttribute('aria-label','Open menu');
+  }
+  ham.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    ham.classList.toggle('open');
+    document.body.style.overflow = open ? 'hidden' : '';
+    ham.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  document.querySelectorAll('.mobile-link, .mobile-cta').forEach(function(l){
+    l.addEventListener('click', closeMenu);
+  });
+  /* Close on Escape */
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+  });
+
+  /* Scroll reveal */
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+})();
+</script>
+
+</body>
+</html>
